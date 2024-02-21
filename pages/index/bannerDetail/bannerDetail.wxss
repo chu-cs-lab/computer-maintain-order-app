@@ -1,0 +1,10 @@
+.title {
+  font-weight: 550;
+  text-align: center;
+  margin: 20rpx 0;
+  font-size: 44rpx;
+}
+.rich {
+  text-align: center;
+  margin: 0 20rpx;
+}

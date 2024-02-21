@@ -1,0 +1,21 @@
+<textarea class="text-area" placeholder="请输入备注" bindinput="getText"></textarea>
+
+<view class="titlte">选择图片:</view>
+
+<view class="img-wrap">
+  <!-- 选择后或拍照后的图片 -->
+  <block wx:for="{{cloudImgList}}">
+    <view class="one-img">
+      <image class="close-img" src="/images/close.png" bindtap="deleteImg" data-index="{{index}}"></image>
+      <image class="img-choose" src="{{item}}"></image>
+    </view>
+  </block>
+  
+  <!-- 选择图片 -->
+  <view class="one-img" bindtap="chooseImage" wx:if="{{cloudImgList.length<3}}">
+    <image class="img-choose" src="/images/add-image.png"></image>
+  </view>
+</view>
+
+
+<button type="primary" bindtap="submit">提交</button>

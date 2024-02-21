@@ -1,0 +1,5 @@
+.ipt {
+  margin: 20rpx;
+  border: 1rpx solid rgb(141, 141, 141);
+  padding: 20rpx;
+}

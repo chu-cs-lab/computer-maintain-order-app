@@ -1,0 +1,49 @@
+
+
+<view class="face-wrap">
+
+  <image wx:if="{{!userInfo}}" src="/images/touxiang.png" class="face-img"></image>
+
+
+  <image wx:if="{{userInfo}}"  src="{{userInfo.avatarUrl}}" class="face-img"></image>
+  <view  wx:if="{{userInfo}}" >{{userInfo.nickName}}</view>
+
+</view>
+
+
+<button wx:if="{{!userInfo}}" class="but-login" bindtap="login">登录</button>
+
+
+
+<view class="order-wrap" wx:if="{{userInfo}}">
+
+  <navigator url="/pages/me/myOders/myOrders?status=0">
+    <image class="type-img" src="/images/waitPut.png"></image>
+    <view>待接单</view>
+  </navigator>
+
+  <navigator url="/pages/me/myOders/myOrders?status=1">
+    <image class="type-img"  src="/images/waitGet.png"></image>
+    <view>待上门</view>
+  </navigator>
+
+  <navigator url="/pages/me/myOders/myOrders?status=2">
+    <image class="type-img"  src="/images/comment.png"></image>
+    <view>待评价</view>
+  </navigator>
+
+  <navigator url="/pages/me/myOders/myOrders?status=3">
+    <image class="type-img"  src="/images/success.png"></image>
+    <view>已完成</view>
+  </navigator>
+
+
+</view>
+
+
+
+<view class="menu-item" bindtap="toCollect" wx:if="{{userInfo}}">我的收藏</view>
+<view class="menu-item" bindtap="toRepair" wx:if="{{userInfo}}">维修中心</view>
+<view class="menu-item" bindtap="toKefu">在线客服</view>
+<view class="menu-item" bindtap="toFeedback">意见反馈</view>
+<view class="menu-item" bindtap="loinOut" wx:if="{{userInfo}}">退出登录</view>

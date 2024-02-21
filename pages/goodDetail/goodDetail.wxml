@@ -1,0 +1,69 @@
+<image src="{{good.cover}}" class="good-cover" bindtap="previewCover" data-src="{{good.cover}}"></image>
+
+
+<view class="good-price-tag">
+  <view class="good-price">￥{{good.price}}</view>
+  <!-- <view class="good-tag">{{good.saleNumber}}人购买</view> -->
+  <view class="good-tag">库存{{good.stockNumber}}</view>
+</view>
+
+<view class="good-title-box">
+
+  <view class="good-title">{{good.title}}</view>
+  <button open-type="share" class="share-but">分享</button>
+</view>
+
+
+
+
+<view class="good-detail-title">商品详情</view>
+
+<view class="good-detail-box">
+  <view>{{good.text}}</view>
+
+  <block wx:for="{{good.images}}">
+    <image src="{{item}}" class="good-detail-img" bindtap="previewImage" data-src="{{item}}"></image>
+  </block>
+
+</view>
+
+
+
+<view class="good-detail-title">商品评价</view>
+
+<block wx:for="{{commentList}}">
+  <view class="comment-wrap">
+    <view>
+      <image class="comment-face" src="{{item.avatarUrl}}"></image>
+    </view>
+    <view>
+      <view>{{item.nickName}}</view>
+      <view>{{item.time}}</view>
+      <view>{{item.text}}</view>
+    </view>
+  </view>
+</block>
+
+
+
+
+<view style="height: 120rpx;"></view>
+
+
+<!-- 底部tabbar -->
+<view class="tabber">
+  <!-- 左半部分 -->
+  <view class="cart-num">{{cartList.length}}</view>
+  <view>
+
+    <image wx:if="{{isCollected==false}}" src="/images/collect_no.png" class="cart-img" bindtap="collect"></image>
+    <image wx:if="{{isCollected==true}}" src="/images/collect_yes.png" class="cart-img" bindtap="cancelCollect"></image>
+
+    <image src="/images/cart_yes.png" class="cart-img" bindtap="toCart"></image>
+  </view>
+  <view class="tabbar-right">
+    <view class="add-cart" bindtap="addCart">加入购物车</view>
+    <view class="buy" bindtap="toOrder">立即购买</view>
+  </view>
+
+</view>
