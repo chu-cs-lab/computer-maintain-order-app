@@ -1,3 +1,13 @@
+let shared ;
+try{
+  shared = require('../shared/shared.js')
+} catch (e){
+  console.warn('请配置 shared.js')
+  shared = {
+    is_demo: true
+  }
+}
+
 module.exports = {
 
 	//### 环境相关 
@@ -6,7 +16,7 @@ module.exports = {
 	// ##################################################################   
 	COLLECTION_PRFIX: 'bx_',
 
-	IS_DEMO: true, //是否演示版 (后台不可操作提交动作)  
+	IS_DEMO: shared.is_demo, //是否演示版 (后台不可操作提交动作)  
 	// ##################################################################
 	// #### 调试相关 
 	TEST_MODE: false, // 测试模式 涉及小程序码生成路径， 用以下 TEST_TOKEN_ID openid.. 
