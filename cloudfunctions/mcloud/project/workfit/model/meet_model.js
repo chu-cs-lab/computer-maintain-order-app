@@ -1,6 +1,6 @@
 /**
  * Notes: 服务者实体
- * Ver : CCMiniCloud Framework 2.0.1 ALL RIGHTS RESERVED BY cclinux0730 (wx)
+ * Ver : CCMiniCloud Framework 2.0.1  (wx)
  * Date: 2022-01-17 19:20:00 
  */
 

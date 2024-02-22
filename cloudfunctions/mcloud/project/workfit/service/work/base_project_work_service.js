@@ -1,7 +1,7 @@
 /**
  * Notes: 服务者管理模块业务基类
  * Date: 2023-01-15 07:48:00 
- * Ver : CCMiniCloud Framework 2.0.8 ALL RIGHTS RESERVED BY cclinux0730 (wechat)
+ * Ver : CCMiniCloud Framework 2.0.8  (wechat)
  */
 
 const BaseService = require('../../../../framework/platform/service/base_service.js');

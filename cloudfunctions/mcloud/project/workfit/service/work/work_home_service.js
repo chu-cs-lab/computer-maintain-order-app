@@ -1,7 +1,7 @@
 /**
  * Notes: 服务者首页管理模块 
  * Date: 2023-01-15 07:48:00 
- * Ver : CCMiniCloud Framework 2.0.8 ALL RIGHTS RESERVED BY cclinux0730 (wechat)
+ * Ver : CCMiniCloud Framework 2.0.8  (wechat)
  */
 
 const BaseProjectWorkService = require('./base_project_work_service.js');

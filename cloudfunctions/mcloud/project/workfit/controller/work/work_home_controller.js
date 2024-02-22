@@ -1,6 +1,6 @@
 /**
  * Notes:服务者首页控制器模块
- * Ver : CCMiniCloud Framework 2.0.3 ALL RIGHTS RESERVED BY cclinuX0730 (wechat)
+ * Ver : CCMiniCloud Framework 2.0.3  (wechat)
  * Date: 2023-01-16 19:20:00 
  */
 

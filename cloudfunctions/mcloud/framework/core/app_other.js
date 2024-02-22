@@ -1,6 +1,6 @@
 /**
  * Notes: 云函数非标业务处理
- * Ver : CCMiniCloud Framework 2.6.1 ALL RIGHTS RESERVED BY ccLinux@qq.com
+ * Ver : CCMiniCloud Framework 2.6.1 ALL RIGHTS RESERVED BY 
  * Date: 2021-10-21 04:00:00 
  */
 

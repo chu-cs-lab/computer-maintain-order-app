@@ -1,6 +1,6 @@
 /**
  * Notes: 预约模块业务逻辑
- * Ver : CCMiniCloud Framework 2.0.1 ALL RIGHTS RESERVED BY cclinux0730 (wechat)
+ * 
  * Date: 2021-12-10 07:48:00 
  */
 
