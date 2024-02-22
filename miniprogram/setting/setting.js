@@ -1,4 +1,14 @@
-﻿module.exports = {
+﻿let shared ;
+try{
+  shared = require('../lib/tools/shared.js')
+} catch (e){
+  console.warn('请配置 shared.js')
+  shared = {
+    is_demo: true
+  }
+}
+
+module.exports = {
 	//### 环境相关 
 	CLOUD_ID: 'cloud1-1ghp17rt8303632d', //云服务id ,本地测试环境 
 
@@ -8,7 +18,7 @@
 
 	// #### 系统参数 
 	IS_SUB: false, //分包模式 
-	IS_DEMO: true, //是否演示版  
+	IS_DEMO: shared.is_demo, //是否演示版  
 
 	MOBILE_CHECK: false, //手机号码是否真实性校验
 
