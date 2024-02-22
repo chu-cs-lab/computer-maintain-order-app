@@ -77,18 +77,8 @@
 				"iconPath": "/projects/workfit/images/tabbar/home.png",
 				"selectedIconPath": "/projects/workfit/images/tabbar/home_cur.png"
 			},
-			{
-				"pagePath": "projects/workfit/pages/news/index/news_index",
-				"text": "公告",
-				"iconPath": "/projects/workfit/images/tabbar/news.png",
-				"selectedIconPath": "/projects/workfit/images/tabbar/news_cur.png"
-			},
-			{
-				"pagePath": "projects/workfit/pages/meet/calendar/meet_calendar",
-				"text": "预约日历",
-				"iconPath": "/projects/workfit/images/tabbar/day.png",
-				"selectedIconPath": "/projects/workfit/images/tabbar/day_cur.png"
-			}  ,
+		
+			
 			{
 				"pagePath": "projects/workfit/pages/my/index/my_index",
 				"text": "我的",
