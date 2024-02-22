@@ -33,7 +33,7 @@
 		<view class="item" bindtap="url" data-url="../../news/list/admin_news_list"> <text class="icon-form text-darkgreen"></text> <text class="text-black">公告管理</text>
 		</view>
 
-		<view class="item" bindtap="url" data-url="../../meet/list/admin_meet_list"> <text class="icon-friend text-blue"></text> <text class="text-black">教练&预约管理</text>
+		<view class="item" bindtap="url" data-url="../../meet/list/admin_meet_list"> <text class="icon-friend text-blue"></text> <text class="text-black">工程师&预约管理</text>
 		</view>
 
 

@@ -79,7 +79,7 @@
 		<view class="item" bindtap="bindSetTap">
 			<view class="title">
 				<text class="icon-friend title-ico text-blue"></text>
-				<text class="text-blue">教练入口<text wx:if="{{skin.IS_SUB}}" class="text-grey text-normal">（点击试用）</text></text>
+				<text class="text-blue">工程师入口<text wx:if="{{skin.IS_SUB}}" class="text-grey text-normal">（点击试用）</text></text>
 			</view>
 		</view>
 

@@ -254,8 +254,8 @@ class AdminMeetController extends BaseProjectAdminController {
 			order: 'must|int|min:0|max:9999|name=排序号',
 			cancelSet: 'must|int|name=取消设置',
 			daysSet: 'must|array|name=预约时间设置',
-			phone: 'string|len:11|name=教练登陆手机',
-			password: 'string|min:6|max:30|name=教练登陆密码',
+			phone: 'string|len:11|name=工程师登陆手机',
+			password: 'string|min:6|max:30|name=工程师登陆密码',
 			forms: 'array|name=表单',
 			joinForms: 'must|array|name=用户资料设置',
 		};

@@ -73,7 +73,7 @@ MeetModel.STATUS_DESC = {
 };
 
 
-MeetModel.NAME = '教练';
+MeetModel.NAME = '工程师';
 
 
 module.exports = MeetModel;

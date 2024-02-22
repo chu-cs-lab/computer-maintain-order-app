@@ -101,7 +101,7 @@ Page({
 	},
 
 	bindSetTap: function (e, skin) {
-		let itemList = ['清除缓存', '后台管理', '教练平台'];
+		let itemList = ['清除缓存', '后台管理', '工程师平台'];
 		wx.showActionSheet({
 			itemList,
 			success: async res => {

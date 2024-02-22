@@ -41,7 +41,7 @@
 
 <view id="formPhone" class="form-box shadow" wx:if="{{isAdmin&&formCateId==1}}">
 	<view class="form-group">
-			<view class="title">教练登陆手机</view>
+			<view class="title">工程师登陆手机</view>
 			<input maxlength="11" type="number" placeholder="请填写登陆手机号码" model:value="{{formPhone}}" focus="{{formPhoneFocus}}"></input>
 		</view>
 		<view wx:if="{{formPhoneFocus}}" class="hint-desc error">{{formPhoneFocus}}</view>
@@ -50,7 +50,7 @@
 			<text class="icon-info" style="font-size: 24rpx;">不修改密码则保持以下为空</text>
 		</view>  
 		<view class="form-group">
-			<view class="title">教练登陆密码</view>
+			<view class="title">工程师登陆密码</view>
 			<input maxlength="30" placeholder="请填写登陆密码" model:value="{{formPassword}}" focus="{{formPasswordFocus}}"></input>
 		</view>
 		<view wx:if="{{formPasswordFocus}}" class="hint-desc error">{{formPasswordFocus}}</view>
