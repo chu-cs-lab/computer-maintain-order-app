@@ -8,7 +8,7 @@
 
 	// #### 系统参数 
 	IS_SUB: false, //分包模式 
-	IS_DEMO: false, //是否演示版  
+	IS_DEMO: true, //是否演示版  
 
 	MOBILE_CHECK: false, //手机号码是否真实性校验
 
