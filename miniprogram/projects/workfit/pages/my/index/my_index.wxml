@@ -62,18 +62,8 @@
 	</view>
 
 	<view class="list-menu ">
-		<view class="item" bindtap="url" data-url="../fav/my_fav">
-			<view class="title">
-				<text class="icon-favor title-ico"></text>
-				<text>我的收藏</text>
-			</view>
-		</view>
-		<view class="item" bindtap="url" data-url="../foot/my_foot">
-			<view class="title">
-				<text class="icon-footprint title-ico"></text>
-				<text>历史浏览</text>
-			</view>
-		</view>
+
+
 
 
 		<view class="item" bindtap="bindSetTap">
@@ -90,12 +80,7 @@
 			</view>
 		</view>
 
-		<view class="item" bindtap="url" data-url="../../about/index/about_index?key=SETUP_CONTENT_ABOUT">
-			<view class="title">
-				<text class="icon-service title-ico"></text>
-				<text>关于我们</text>
-			</view>
-		</view>
+
 
 		<view class="item" wx:if="{{skin.IS_SUB}}" bindtap="url" data-url="/pages/home/about/home_about">
 			<view class="title">
