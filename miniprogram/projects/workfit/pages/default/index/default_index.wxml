@@ -14,7 +14,7 @@
 					<view class="img shadow">
 						<image src="../../../images/menu/project.png" />
 					</view>
-					<view class="title">维修预约</view>
+					<view class="title">我要维修</view>
 				</view>
 			</view>
 
