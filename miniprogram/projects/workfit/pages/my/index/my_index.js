@@ -100,6 +100,16 @@ Page({
 		pageHelper.url(e, this);
 	},
 
+  bindNaviToWorker:function(e){
+      if (setting.IS_SUB) {
+        WorkBiz.workLogin(this, '13700000000', '123456');
+      } else {
+        wx.reLaunch({
+          url: '../../work/index/login/work_login',
+        });
+      }
+  },
+
 	bindSetTap: function (e, skin) {
 		let itemList = ['清除缓存', '后台管理', '工程师平台'];
 		wx.showActionSheet({
@@ -123,13 +133,7 @@ Page({
 				}
 
 				if (idx == 2) {
-					if (setting.IS_SUB) {
-						WorkBiz.workLogin(this, '13700000000', '123456');
-					} else {
-						wx.reLaunch({
-							url: '../../work/index/login/work_login',
-						});
-					}
+          this.bindNaviToWorker();
 
 				}
 
