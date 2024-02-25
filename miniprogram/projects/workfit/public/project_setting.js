@@ -24,7 +24,7 @@ module.exports = { //workfit
 	MEET_NAME: '预约',
 	MEET_CATE: [
 		{ id: 1, title: '私教预约', style: 'leftbig1' },
-		{ id: 2, title: '项目预约', style: 'leftbig1' },
+		{ id: 2, title: '维修列表', style: 'leftbig1' },
 		{ id: 3, title: '团课预约', style: 'leftbig1' },
 	],
 	MEET_CAN_NULL_TIME: false, // 是否允许有无时段的日期保存和展示

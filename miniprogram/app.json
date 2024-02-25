@@ -55,8 +55,7 @@
 		"projects/workfit/pages/work/meet/join/work_meet_join",
 		"projects/workfit/pages/work/meet/scan/work_meet_scan",
 		"cmpts/public/form/form_set/field/form_set_field",
-		"cmpts/public/form/form_show/content/form_show_content",
-		"pages/test1/test1" 
+		"cmpts/public/form/form_show/content/form_show_content"		
 	],
 	"window": { 
 		"backgroundColor": "#f1f1f1",
@@ -77,18 +76,8 @@
 				"iconPath": "/projects/workfit/images/tabbar/home.png",
 				"selectedIconPath": "/projects/workfit/images/tabbar/home_cur.png"
 			},
-			{
-				"pagePath": "projects/workfit/pages/news/index/news_index",
-				"text": "公告",
-				"iconPath": "/projects/workfit/images/tabbar/news.png",
-				"selectedIconPath": "/projects/workfit/images/tabbar/news_cur.png"
-			},
-			{
-				"pagePath": "projects/workfit/pages/meet/calendar/meet_calendar",
-				"text": "预约日历",
-				"iconPath": "/projects/workfit/images/tabbar/day.png",
-				"selectedIconPath": "/projects/workfit/images/tabbar/day_cur.png"
-			}  ,
+		
+			
 			{
 				"pagePath": "projects/workfit/pages/my/index/my_index",
 				"text": "我的",
