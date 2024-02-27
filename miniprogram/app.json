@@ -31,7 +31,6 @@
 		"projects/workfit/pages/admin/user/detail/admin_user_detail",
 		"projects/workfit/pages/admin/user/export/admin_user_export",
 		"projects/workfit/pages/meet/index/meet_index",
-		"projects/workfit/pages/meet/calendar/meet_calendar",
 		"projects/workfit/pages/meet/join/meet_join", 
 		"projects/workfit/pages/meet/detail/meet_detail",
 		"projects/workfit/pages/meet/my_join_list/meet_my_join_list",
