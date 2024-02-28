@@ -103,3 +103,24 @@
 	font-size: 24rpx;
 	z-index: 99999;
 }
+.price-box{
+  position: absolute;
+  bottom: 20rpx;
+  color:red;
+}
+
+.price-text{
+  font-size: 1.4rem;
+}
+
+.order-btn{
+  position: absolute;
+  bottom:20rpx;
+  right:25rpx;
+  background: none;
+  border-radius: 50rpx;
+  border: 1px solid #3578FF;
+  color: #3578FF;
+  padding: 5rpx 20rpx 5rpx 20rpx;
+  font-size: 0.8rem;
+}
