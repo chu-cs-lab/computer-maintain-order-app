@@ -658,7 +658,11 @@ function url(e, that) {
 			if (!url) return;
 			wx.navigateTo({
 				url
-			})
+			}).then().catch(e=>{
+        wx.switchTab({
+          url
+        })
+      })
 
 	}
 
