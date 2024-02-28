@@ -161,7 +161,6 @@ function callCloud(route, params = {}, options) {
 			},
 			fail: function (err) {
 				if (hint) {
-					console.log(err)
 					if (err && err.errMsg && err.errMsg.includes('-501000') && err.errMsg.includes('Environment not found')) {
 						wx.showModal({
 							title: '',
@@ -182,12 +181,7 @@ function callCloud(route, params = {}, options) {
 							content: '云函数正在上传中或者上传有误，请稍候',
 							showCancel: false
 						});
-					} else
-						wx.showModal({
-							title: '',
-							content: '网络故障，请稍后重试',
-							showCancel: false
-						});
+					}
 				}
 				reject(err.result);
 				return;
