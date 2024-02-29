@@ -8,7 +8,6 @@
 
 			<view class="k-list">
 				<view class="item shadow-project" wx:for="{{dataList.list}}" wx:key="k">
-					<view wx:if="{{item.MEET_CATE_ID==1}}" class="level">{{item.MEET_OBJ.level}}星</view>
 					<view class="left">
 						<image class="loading" lazy-load="{{true}}" mode="aspectFill" src="{{item.MEET_OBJ.cover[0]}}" />
 					</view>
