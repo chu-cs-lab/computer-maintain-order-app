@@ -7,23 +7,19 @@
 		<view class="main">
 
 			<view class="k-list">
-				<view bindtap="url" data-url="../detail/meet_detail?id={{item._id}}" class="item shadow-project" wx:for="{{dataList.list}}" wx:key="k">
-					<view wx:if="{{item.MEET_CATE_ID==1}}" class="level">{{item.MEET_OBJ.level}}星</view>
+				<view class="item shadow-project" wx:for="{{dataList.list}}" wx:key="k">
 					<view class="left">
 						<image class="loading" lazy-load="{{true}}" mode="aspectFill" src="{{item.MEET_OBJ.cover[0]}}" />
 					</view>
 					<view class="right">
 						<view class="title text-cut">{{item.MEET_TITLE}}</view>
 						<view class="desc content-cut-two">{{item.MEET_OBJ.desc}} </view>
-						<view class="tag-list">
-							<text class="tag" wx:if="{{indx<3}}" wx:for="{{tools.split(item.MEET_OBJ.spec,',')}}" wx:key="k" wx:for-item="itm" wx:for-index="indx">{{itm}}</text>
-						</view>
-						<view class="line text-cut">
-							<view><text class="icon-calendar margin-right-xxs"></text>{{item.openRule}} </view>
-							<!--<view class="text-grey">#{{item.MEET_CATE_NAME}} </view>-->
-						</view>
+            <view class="price-box">
+            ￥ <text class="price-text">1000</text>
+            </view>
+            <button class="order-btn" bindtap="url" data-url="../detail/meet_detail?id={{item._id}}">立即预约</button>
 					</view>
-
+          
 				</view>
 			</view>
 		</view>
