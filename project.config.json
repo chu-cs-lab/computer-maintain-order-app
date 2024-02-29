@@ -2,6 +2,8 @@
 	"miniprogramRoot": "miniprogram/",
 	"cloudfunctionRoot": "cloudfunctions/",
 	"setting": {
+		"ignoreDevUnusedFiles": false,
+		"ignoreUploadUnusedFiles": true,
 		"urlCheck": false,
 		"es6": true,
 		"enhance": true,
@@ -38,7 +40,6 @@
 		"minifyWXML": true,
 		"showES6CompileOption": false,
 		"useCompilerPlugins": false,
-		"ignoreUploadUnusedFiles": true,
 		"useStaticServer": true,
 		"condition": false
 	},
