@@ -2,7 +2,7 @@
 	<view class="top">
 		<view class="inner" bindtap="url" data-url="{{user?'../edit/my_edit':'../reg/my_reg'}}">
 			<view class="avatar">
-				<image src="../../../images/tabbar/my_cur.png" mode="aspectFill"></image>
+				<image src="../../../images/tabbar/user_cur.png" mode="aspectFill"></image>
 			</view>
 			<view class="right">
 				<view class="line1">

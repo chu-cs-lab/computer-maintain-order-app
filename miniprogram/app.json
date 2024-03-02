@@ -71,8 +71,8 @@
 			{
 				"pagePath": "projects/workfit/pages/my/index/my_index",
 				"text": "我的",
-				"iconPath": "/projects/workfit/images/tabbar/my.png",
-				"selectedIconPath": "/projects/workfit/images/tabbar/my_cur.png"
+				"iconPath": "/projects/workfit/images/tabbar/user.png",
+				"selectedIconPath": "/projects/workfit/images/tabbar/user_cur.png"
 			}
 		]
 	}, 

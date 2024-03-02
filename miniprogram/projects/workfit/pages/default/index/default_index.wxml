@@ -1,6 +1,6 @@
 <view class="main">
 	<view class="up">
-		<image mode="aspectFill" src="../../../images/default_index_bg.png" />
+		<image mode="aspectFill" src="../../../images/default_index_background.png" style="border-bottom-left-radius: 40px;border-bottom-right-radius: 40px;"/>
 	</view>
 	<view class="down">
 		<view class="menu card-project shadow-project">
@@ -12,7 +12,7 @@
 			<view bindtap="url" data-url="../../meet/index/meet_index?id=2" class="item">
 				<view class="item-inner">
 					<view class="img shadow">
-						<image src="../../../images/menu/project.png" />
+						<image src="../../../images/menu/fix.png" />
 					</view>
 					<view class="title">我要维修</view>
 				</view>
