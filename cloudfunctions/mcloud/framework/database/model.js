@@ -433,7 +433,7 @@ class Model {
 	static clearEditData(data) {
 		let dbStructure = Model.converDBStructure(this.DB_STRUCTURE);
 
-		// 去掉脏数据
+    // 去掉脏数据
 		this.clearDirtyData(data, dbStructure);
 
 		data = this.converDataType(data, dbStructure);

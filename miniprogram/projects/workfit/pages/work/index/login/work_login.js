@@ -15,7 +15,7 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-		WorkBiz.clearWorkToken();
+    WorkBiz.clearWorkToken();
 	},
 
 	/**
@@ -56,6 +56,16 @@ Page({
 
 	bindLoginTap: async function (e) {
 		return WorkBiz.workLogin(this, this.data.phone, this.data.pwd);
-	}
+  },
+  phoneInput(e){
+    this.setData({
+      phone:e.detail.value
+    })
+  },
+  pwdInput(e){
+    this.setData({
+      pwd:e.detail.value
+    });
+  }
 
 })

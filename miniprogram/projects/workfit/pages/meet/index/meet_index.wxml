@@ -19,7 +19,6 @@
             </view>
             <button class="order-btn" bindtap="url" data-url="../detail/meet_detail?id={{item._id}}">立即预约</button>
 					</view>
-          
 				</view>
 			</view>
 		</view>

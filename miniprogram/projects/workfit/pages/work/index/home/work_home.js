@@ -60,7 +60,8 @@ Page({
 		}
 		
 		// 用于修改图片后更新展示
-		let work = WorkBiz.getWorkToken();
+    let work = WorkBiz.getWorkToken();
+    console.log(work);
 		this.setData({
 			isLoad: true,
 			work,

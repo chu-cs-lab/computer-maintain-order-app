@@ -8,12 +8,12 @@
 
 		<view class="form-group margin-top">
 			<view class="title">手机：</view>
-			<input type="number" placeholder="请输入手机号码" maxlength="11" placeholder-class="phc" model:value="{{phone}}"></input>
+			<input type="number" placeholder="请输入手机号码" maxlength="11" placeholder-class="phc" bindinput="phoneInput"></input>
 		</view>
 
 		<view class="form-group">
 			<view class="title">密码：</view>
-			<input placeholder="请输入您的密码" maxlength="30" type="password" placeholder-class="phc" model:value="{{pwd}}"></input>
+			<input placeholder="请输入您的密码" maxlength="30" type="password" placeholder-class="phc" bindinput="pwdInput"></input>
 		</view>
 
 

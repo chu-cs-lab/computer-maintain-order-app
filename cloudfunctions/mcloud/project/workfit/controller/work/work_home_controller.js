@@ -23,18 +23,18 @@ class WorkHomeController extends BaseProjectWorkController {
 
 		let service = new WorkHomeService();
 		return await service.workHome(this._workId);
-	}
-
-
-	// 登录  
+  }
+  
+  // 新的工程师登录
+  
 	async workLogin() {
 
 		// 数据校验
 		let rules = {
 			phone: 'string|must|mobile|name=手机',
 			pwd: 'string|must|min:6|max:30|name=密码',
-		};
-
+    };
+    
 		// 取得数据
 		let input = this.validateData(rules);
 

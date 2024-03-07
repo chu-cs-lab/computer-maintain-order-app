@@ -3,6 +3,8 @@
  * Date: 2023-01-15 07:48:00 
  * Ver : CCMiniCloud Framework 2.0.8  (wechat)
  */
+const cloud = require("wx-server-sdk")
+const db = cloud.database();
 
 const BaseProjectWorkService = require('./base_project_work_service.js');
 
@@ -13,6 +15,8 @@ const md5Lib = require('../../../../framework/lib/md5_lib.js');
 const MeetModel = require('../../model/meet_model.js');
 
 const MeetService = require('../../service/meet_service.js');
+const EngineerModel = require('../../model/engineer_model.js');
+const { ORDER_BY } = require("../../model/meet_model.js");
 
 class WorkHomeService extends BaseProjectWorkService {
 
@@ -24,48 +28,52 @@ class WorkHomeService extends BaseProjectWorkService {
 
 		let meetService = new MeetService();
 		let dayList = await meetService.getDaysSet(meetId, timeUtil.time('Y-M-D'));
-		let dayCnt = dayList.length;
-
+    let dayCnt = dayList.length;
+    
+    //  
 		return { dayCnt };
 	}
 
-
-	// 登录  
+  // 新的登录
 	async workLogin(phone, password, openId) {
-
 
 		// 判断是否存在
 		let where = {
-			MEET_PHONE: phone,
-			MEET_PASSWORD: md5Lib.md5(password),
-			MEET_STATUS: MeetModel.STATUS.COMM
-		}
-		let fields = 'MEET_PHONE,MEET_ID,MEET_TITLE,MEET_OBJ,MEET_LOGIN_TIME,MEET_LOGIN_CNT';
-		let meet = await MeetModel.getOne(where, fields);
-		if (!meet)
-			this.AppError('该账号不存在或者密码错误');
+		  phone: phone,
+			password: md5Lib.md5(password),
+			status:EngineerModel.STATUS.OK
+    }
+    
+		let fields = "_openid,name,token,token_time,last_login_time,avatar,login_count";
+    let res = await EngineerModel.getOne(where,fields,"",false);
+    console.log("登录返回：",res);
 
-		let cnt = meet.MEET_LOGIN_CNT;
+		if (!res)
+      this.AppError('该账号不存在或者密码错误');
+    
+		let cnt = res.login_count;
 
 		// 生成token
 		let token = dataUtil.genRandomString(32);
-		let tokenTime = timeUtil.time();
+    let tokenTime = timeUtil.time();
+    
 		let data = {
-			MEET_MINI_OPENID: openId,
-			MEET_TOKEN: token,
-			MEET_TOKEN_TIME: tokenTime,
-			MEET_LOGIN_TIME: timeUtil.time(),
-			MEET_LOGIN_CNT: cnt + 1
-		}
-		await MeetModel.edit(where, data);
+			openid:openId,
+			token: token,
+			token_time: tokenTime,
+			last_login_time: timeUtil.time(),
+			login_count: cnt + 1
+    }
 
-		let name = meet.MEET_TITLE;
-		let id = meet._id;
-		let last = (!meet.MEET_LOGIN_TIME) ? '尚未登录' : timeUtil.timestamp2Time(meet.MEET_LOGIN_TIME);
+    await EngineerModel.edit(where, data,false);
+
+		let name = res.name;
+		let id = res._id;
+		let last = (!res.last_login_time) ? '尚未登录' : timeUtil.timestamp2Time(res.last_login_time);
 		let pic = '';
-		if (meet.MEET_OBJ && meet.MEET_OBJ.cover && meet.MEET_OBJ.cover.length > 0)
-			pic = meet.MEET_OBJ.cover[0];
-
+		if (res.avatar && res.avatar.length > 0)
+      pic = res.avatar;
+      
 		return {
 			id,
 			token,

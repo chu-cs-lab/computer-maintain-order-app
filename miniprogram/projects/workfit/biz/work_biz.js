@@ -12,7 +12,12 @@ const constants = require('../../../comm/constants.js');
 const setting = require('../../../setting/setting.js');
 
 class WorkBiz extends BaseBiz {
-
+  /**
+   * 新的工程师登录方法
+   * @param {object} that 调用页面的this对象 
+   * @param {Number} phone 登录手机号
+   * @param {String|Number} pwd 登录密码
+   */
 	static async workLogin(that, phone, pwd) {
 		if (phone.length != 11) {
 			wx.showToast({
@@ -42,7 +47,6 @@ class WorkBiz extends BaseBiz {
 			await cloudHelper.callCloudSumbit('work/login', params, opt).then(res => {
 				if (res && res.data && res.data.name)
 					cacheHelper.set(constants.CACHE_WORK, res.data, constants.WORK_TOKEN_EXPIRE);
-
 				wx.reLaunch({
 					url: pageHelper.fmtURLByPID('/pages/work/index/home/work_home'),
 				});
