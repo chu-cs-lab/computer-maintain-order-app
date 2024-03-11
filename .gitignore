@@ -3,3 +3,4 @@ miniprogram_npm/
 project.private.config.json
 shared.js
 package-lock.json
+id.js

@@ -1,8 +1,9 @@
-﻿let shared ;
+﻿let shared,mid ;
 try{
   shared = require('../lib/tools/shared.js')
+  mid = require('../lib/tools/id.js')
 } catch (e){
-  console.warn('请配置 shared.js')
+  console.warn('请配置 shared.js和id.js')
   shared = {
     is_demo: true
   }
@@ -10,7 +11,7 @@ try{
 
 module.exports = {
 	//### 环境相关 
-	CLOUD_ID: 'cloud1-1ghp17rt8303632d', //云服务id ,本地测试环境 
+	CLOUD_ID: mid.cloud_id, //云服务id ,本地测试环境 
 
 	// #### 版本信息 
 	VER: 'build 2023.01.14',

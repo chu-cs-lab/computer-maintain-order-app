@@ -1,8 +1,9 @@
-let shared ;
+let shared,mid;
 try{
-  shared = require('../shared/shared.js')
+  shared = require('../shared/shared.js');
+  mid = require('./id.js');
 } catch (e){
-  console.warn('请配置 shared.js')
+  console.warn('请配置 shared.js和id.js')
   shared = {
     is_demo: true
   }
@@ -11,7 +12,7 @@ try{
 module.exports = {
 
 	//### 环境相关 
-	CLOUD_ID: 'cloud1-1ghp17rt8303632d', //你的云环境id   
+	CLOUD_ID: mid.cloud_id, //你的云环境id   
 
 	// ##################################################################   
 	COLLECTION_PRFIX: 'bx_',
