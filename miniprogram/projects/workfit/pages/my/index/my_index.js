@@ -101,6 +101,7 @@ Page({
 	},
 
   bindNaviToWorker:function(e){
+
       if (setting.IS_SUB) {
         WorkBiz.workLogin(this, '13700000000', '123456');
       } else {

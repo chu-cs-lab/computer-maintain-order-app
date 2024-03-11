@@ -2,3 +2,4 @@ node_modules/
 miniprogram_npm/
 project.private.config.json
 shared.js
+package-lock.json
