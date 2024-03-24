@@ -72,16 +72,17 @@
   justify-content: space-between;
   flex-wrap: wrap;
 }
+.img-box{
+  text-align: center;
+}
 .good-img {
-  width: 345rpx;
-  height: 400rpx;
+  max-height: 220rpx;
   border-radius: 20rpx;
 }
 .good-bootom {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
   margin: 0 10rpx 30rpx 10rpx ;
 }
 .good-title {
@@ -90,9 +91,9 @@
 
   /* 处理文字超出范围，限制文字显示 */
   width: 330rpx;
-  height: 100rpx;
   display: -webkit-box;
   overflow: hidden;
+  font-size:1.1rem;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }

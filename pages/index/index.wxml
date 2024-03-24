@@ -13,10 +13,11 @@
 
 <!-- 商品列表 -->
 <view class="goods-box">
-
   <block wx:for="{{goodsList}}" wx:key="_id">
     <view bindtap="toGoodDetail" data-id="{{item._id}}">
-      <image src="{{item.cover}}" class="good-img"></image>
+    <view class="img-box">
+      <image src="{{item.cover}}" mode="heightFix" class="good-img"></image>
+    </view>
       <view class="good-title">
         <text>{{item.title}}</text>
       </view>
