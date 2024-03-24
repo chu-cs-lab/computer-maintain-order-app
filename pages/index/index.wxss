@@ -66,6 +66,7 @@
 
 /* 商品列表 */
 .goods-box {
+  margin-top:50rpx;
   display: flex;
   flex-direction: row;
   padding: 0 20rpx;
