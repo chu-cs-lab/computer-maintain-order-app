@@ -10,11 +10,11 @@
 </view>
 
 
-<block wx:for="{{orderList}}">
+<block wx:for="{{orderList}}" wx:key="_id">
   <view class="order-wrap">
 
       <view class="oder-id">订单号：{{item._id}}</view>
-      <block wx:for="{{item.goods}}" wx:for-item="good">
+      <block wx:for="{{item.goods}}" wx:for-item="good" wx:key="_id">
         <view class="good-wrap">
           <image class="good-img" src="{{good.cover}}"></image>
           <view>
@@ -33,7 +33,7 @@
       <view class="line-item">预约时间：{{item.yuyueTime}}</view>
 
       <view class="line-item" wx:if="{{item.status>1}}">维修结果：{{item.repairNote}}</view> 
-      <block wx:for="{{item.repairImages}}" wx:for-item="itemm" wx:for-index="indexx">
+      <block wx:for="{{item.repairImages}}" wx:for-item="itemm" wx:for-index="indexx" wx:key="_id">
         <image src="{{itemm}}" class="repair-img" bindtap="previewImage" data-src="{{itemm}}" data-index="{{index}}"></image>
       </block>
 

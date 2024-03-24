@@ -17,22 +17,22 @@
 
 <view class="order-wrap" wx:if="{{userInfo}}">
 
-  <navigator url="/pages/me/myOders/myOrders?status=0">
+  <navigator url="/pages/me/myOrders/myOrders?status=0">
     <image class="type-img" src="/images/waitPut.png"></image>
     <view>待接单</view>
   </navigator>
 
-  <navigator url="/pages/me/myOders/myOrders?status=1">
+  <navigator url="/pages/me/myOrders/myOrders?status=1">
     <image class="type-img"  src="/images/waitGet.png"></image>
     <view>待上门</view>
   </navigator>
 
-  <navigator url="/pages/me/myOders/myOrders?status=2">
+  <navigator url="/pages/me/myOrders/myOrders?status=2">
     <image class="type-img"  src="/images/comment.png"></image>
     <view>待评价</view>
   </navigator>
 
-  <navigator url="/pages/me/myOders/myOrders?status=3">
+  <navigator url="/pages/me/myOrders/myOrders?status=3">
     <image class="type-img"  src="/images/success.png"></image>
     <view>已完成</view>
   </navigator>

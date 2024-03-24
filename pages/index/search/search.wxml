@@ -11,7 +11,7 @@
 
 <view class="no-good" wx:if="{{goodList.length == 0}}">没有对应的商品</view>
 
-<block wx:for="{{goodList}}">
+<block wx:for="{{goodList}}" wx:key="_id">
   <view class="good-box" bindtap="toGoodDetail" data-id="{{item._id}}">
     <image src="{{item.cover}}" class="good-img"></image>
 

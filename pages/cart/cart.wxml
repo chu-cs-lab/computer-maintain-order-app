@@ -1,5 +1,5 @@
 
-<block wx:for="{{cartList}}">
+<block wx:for="{{cartList}}" wx:key="_id">
 
   <view class="good-box" bindtap="toGoodDetail" data-id="{{item._id}}">
     <image wx:if="{{item.choose == true}}" src="/images/choose.png" class="choose-img" catchtap="chooseGood" data-index="{{index}}"></image>

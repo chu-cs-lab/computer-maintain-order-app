@@ -1,29 +1,21 @@
 const app = getApp();
 Page({
   data: {
-    status: 0,
-    whereObj: {
-      status: 0,
-    },
+    status: -1,
   },
 
   onLoad: function (options) {
+    this.setData({
+      status: options.status,
+    });
+
     this.getOrderList();
   },
   choooType(event) {
     let status = event.currentTarget.dataset.type;
-    let whereObj = {};
-    if (status != 0) {
-      whereObj.status = Number(status);
-      whereObj.repairmanOpenid = app.globalData.openid;
-    } else {
-      whereObj.status = Number(status);
-    }
     this.setData({
-      whereObj,
       status,
     });
-
     this.getOrderList();
   },
   getOrderList() {
@@ -31,7 +23,8 @@ Page({
       .database()
       .collection("shop_orders")
       .where({
-        ...this.data.whereObj,
+        status: Number(this.data.status),
+        _openid: app.globalData.openid,
       })
       .orderBy("time", "desc")
       .get()
@@ -169,45 +162,6 @@ Page({
         })
         .then((res) => {});
     }
-  },
-  //接单
-  jiedan(event) {
-    let index = event.currentTarget.dataset.index;
-
-    wx.showModal({
-      title: "提示",
-      content: "确认接单吗",
-      confirmText: "确定",
-    }).then((res) => {
-      if (res.confirm == true) {
-        wx.cloud
-          .database()
-          .collection("shop_orders")
-          .doc(this.data.orderList[index]._id)
-          .update({
-            data: {
-              status: 1,
-              repairmanOpenid: app.globalData.openid,
-            },
-          })
-          .then((result) => {
-            wx.showToast({
-              title: "接单成功",
-            });
-            this.getOrderList();
-          });
-      } else {
-      }
-    });
-  },
-  toUploadImage(event) {
-    let index = event.currentTarget.dataset.index;
-
-    wx.navigateTo({
-      url:
-        "/pages/me/repair/uploadImage/uploadImage?orderId=" +
-        this.data.orderList[index]._id,
-    });
   },
   previewImage(event) {
     wx.previewImage({

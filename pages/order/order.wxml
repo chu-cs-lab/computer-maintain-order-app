@@ -26,7 +26,7 @@
   购物明细:
 </view>
 
-<block wx:for="{{orderList}}">
+<block wx:for="{{orderList}}" wx:key="_id">
 
   <view class="good-box" bindtap="toGoodDetail" data-id="{{item._id}}">
     

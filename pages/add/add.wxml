@@ -12,7 +12,7 @@
 
   <view class="title">请选择商品类型</view>
   <view class="type-wrap">
-    <block wx:for="{{typeList}}">
+    <block wx:for="{{typeList}}" wx:key="_id">
       <view class="type-item {{currentIndex==index?'choose-type':'no-choose'}}" bindtap="getType" data-index="{{index}}">{{item.name}}</view>
     </block>
   </view>
@@ -25,7 +25,7 @@
 
   <view class="title">请上传商品封面图片</view>
   <view class="img-wrap">
-    <block wx:for="{{cloudCoverImage}}">
+    <block wx:for="{{cloudCoverImage}}" wx:key="_id">
       <view class="one-img">
         <image src="/images/close.png" class="close-img" bindtap="deleteCoverImage" data-index="{{index}}"></image>
         <image class="img-choose" src="{{item}}"></image>
@@ -39,7 +39,7 @@
 
   <view class="title">请上传商品详情图片</view>
   <view class="img-wrap">
-    <block wx:for="{{cloudDetaiImage}}">
+    <block wx:for="{{cloudDetaiImage}}" wx:key="_id">
       <view class="one-img">
         <image src="/images/close.png" class="close-img" bindtap="deleteDetailImage" data-index="{{index}}"></image>
         <image class="img-choose" src="{{item}}"></image>

@@ -1,4 +1,4 @@
-<block wx:for="{{goodList}}">
+<block wx:for="{{goodList}}" wx:key="_id">
   <view class="good-box" bindtap="toGoodDetail" data-id="{{item.goodId}}">
     <image src="{{item.cover}}" class="good-img"></image>
 
