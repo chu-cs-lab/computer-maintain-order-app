@@ -45,5 +45,6 @@
         "selectedIconPath": "/images/me_yes.png"
       }
     ]
-  }
+  },
+  "requiredPrivateInfos": ["chooseAddress"],
 }
