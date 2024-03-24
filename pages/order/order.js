@@ -101,8 +101,6 @@ Page({
     let that = this;
     wx.chooseAddress({
       success: (result) => {
-
-        console.log(result)
         that.setData({
           phone:result.telNumber,
           name:result.userName,
