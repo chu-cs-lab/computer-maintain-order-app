@@ -10,41 +10,14 @@
   </view>
 </view>
 
-<!-- 轮播图 -->
-<view class="swiper-wrap">
-
-  <swiper class="swiper-box" 	indicator-dots='true'	indicator-color='#fff' 	indicator-active-color="red" autoplay>
-
-    <block wx:for="{{bannerList}}">
-      <swiper-item>
-        <image bindtap="toBannerDetail" data-id="{{item._id}}" class="swiper-img" src="{{item.cover}}"></image>
-      </swiper-item>
-    </block>
-
-  </swiper>
-
-</view>
-
-
-<!-- 分类 -->
-<view class="type-wrap">
-
-  <block wx:for="{{typeList}}">
-    <view class="type-item" bindtap="toTypeDetail" data-id="{{item._id}}">
-      <image src="{{item.image}}" class="type-img"></image>
-      <view>{{item.name}}</view>
-    </view>
-  </block>
-
-</view>
-
 
 <!-- 商品列表 -->
 <view class="goods-box">
-
-  <block wx:for="{{goodsList}}">
+  <block wx:for="{{goodsList}}" wx:key="_id">
     <view bindtap="toGoodDetail" data-id="{{item._id}}">
-      <image src="{{item.cover}}" class="good-img"></image>
+    <view class="img-box">
+      <image src="{{item.cover}}" mode="heightFix" class="good-img"></image>
+    </view>
       <view class="good-title">
         <text>{{item.title}}</text>
       </view>

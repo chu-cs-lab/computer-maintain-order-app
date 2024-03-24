@@ -1,93 +1,36 @@
 Page({
+  data: {},
 
-  data: {
-    
-  },
-
- 
-  onLoad: function (options) {
-    
-    //获取轮播图数据库记录
-    this.getBanners()
-
-    //获取分类
-    this.getTypeList()
-
-    
-  },
-  onShow(){
+  onLoad: function (options) {},
+  onShow() {
     //获取商品列表
-    this.getGoodsList()
+    this.getGoodsList();
   },
-  //获取轮播图数据库记录
-  getBanners(){
-
-    wx.cloud.database().collection('shop_banners').get()
-    .then(res=>{
-      console.log(res)
-      this.setData({
-        bannerList:res.data
+  getGoodsList() {
+    wx.cloud
+      .database()
+      .collection("shop_goods")
+      .where({
+        status: true,
+        isHome: true,
+        stockNumber: wx.cloud.database().command.gt(0), //库存数量必须大于0
       })
-    })
-
-
+      .get()
+      .then((res) => {
+        this.setData({
+          goodsList: res.data,
+        });
+      });
   },
-  toBannerDetail(event){
-    console.log(event.currentTarget.dataset.id)
-    let id = event.currentTarget.dataset.id
+  toGoodDetail(event) {
+    let id = event.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/pages/index/bannerDetail/bannerDetail?id=' + id ,
-    })
+      url: "/pages/goodDetail/goodDetail?id=" + id,
+    });
   },
-  getTypeList(){
-    wx.cloud.database().collection('shop_types')
-    .where({
-      isShowOnHome:true
-    })
-    .get()
-    .then(res=>{
-      console.log(res)
-      this.setData({
-        typeList:res.data
-      })
-    })
-  },
-  getGoodsList(){
-
-    wx.cloud.database().collection('shop_goods')
-    .where({
-      status:true,
-      isHome:true,
-      stockNumber:wx.cloud.database().command.gt(0)//库存数量必须大于0
-    })
-    .get()
-    .then(res=>{
-      console.log(res)
-      this.setData({
-        goodsList:res.data
-      })
-    })
-
-  },
-  toGoodDetail(event){
-    console.log(event.currentTarget.dataset.id)
-    let id = event.currentTarget.dataset.id
+  toSearch() {
     wx.navigateTo({
-      url: '/pages/goodDetail/goodDetail?id=' + id ,
-    })
+      url: "/pages/index/search/search",
+    });
   },
-  toTypeDetail(event){
-    console.log(event.currentTarget.dataset.id)
-    let id = event.currentTarget.dataset.id
-    wx.navigateTo({
-      url: '/pages/index/typeDetail/typeDetail?id=' + id,
-    })
-
-  },
-  toSearch(){
-    wx.navigateTo({
-      url: '/pages/index/search/search',
-    })
-  }
-  
-})
+});

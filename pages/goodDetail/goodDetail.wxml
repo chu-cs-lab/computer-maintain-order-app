@@ -21,7 +21,7 @@
 <view class="good-detail-box">
   <view>{{good.text}}</view>
 
-  <block wx:for="{{good.images}}">
+  <block wx:for="{{good.images}}" wx:key="_id">
     <image src="{{item}}" class="good-detail-img" bindtap="previewImage" data-src="{{item}}"></image>
   </block>
 
@@ -31,7 +31,7 @@
 
 <view class="good-detail-title">商品评价</view>
 
-<block wx:for="{{commentList}}">
+<block wx:for="{{commentList}}" wx:key="_id">
   <view class="comment-wrap">
     <view>
       <image class="comment-face" src="{{item.avatarUrl}}"></image>
@@ -62,7 +62,7 @@
     <image src="/images/cart_yes.png" class="cart-img" bindtap="toCart"></image>
   </view>
   <view class="tabbar-right">
-    <view class="add-cart" bindtap="addCart">加入购物车</view>
+    <view class="add-cart" bindtap="addCart">加入订单列表</view>
     <view class="buy" bindtap="toOrder">立即购买</view>
   </view>
 

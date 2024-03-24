@@ -1,18 +1,15 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/type/type",
     "pages/cart/cart",
     "pages/me/me",
-    "pages/index/bannerDetail/bannerDetail",
-    "pages/index/typeDetail/typeDetail",
     "pages/goodDetail/goodDetail",
     "pages/index/search/search",
     "pages/order/order",
-    "pages/me/myOders/myOrders",
+    "pages/me/myOrders/myOrders",
     "pages/me/kefu/kefu",
     "pages/me/feedback/feedback",
-    "pages/me/myOders/comment/comment",
+    "pages/me/myOrders/comment/comment",
     "pages/me/collect/collect",
     "pages/add/add",
     "pages/me/repair/repair",
@@ -22,12 +19,10 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#FF6146",
-    "navigationBarTitleText": "预约上门服务",
+    "navigationBarTitleText": "电脑巅峰者",
     "navigationBarTextStyle": "white"
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json",
-  "lazyCodeLoading": "requiredComponents",
   "tabBar": {
     "color": "#000",
     "selectedColor": "#FF0000",
@@ -40,14 +35,8 @@
         "selectedIconPath": "/images/home_yes.png"
       },
       {
-        "pagePath": "pages/type/type",
-        "text": "分类",
-        "iconPath": "/images/type.png",
-        "selectedIconPath": "/images/type_yes.png"
-      },
-      {
         "pagePath": "pages/cart/cart",
-        "text": "购物车",
+        "text": "订单列表",
         "iconPath": "/images/cart.png",
         "selectedIconPath": "/images/cart_yes.png"
       },

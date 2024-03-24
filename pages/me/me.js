@@ -1,120 +1,103 @@
-const app =getApp()
+const app = getApp();
 Page({
+  data: {},
 
-
-  data: {
-
-  },
-
-  onShow(){
+  onShow() {
     this.setData({
-      userInfo:app.globalData.userInfo
-    })
+      userInfo: app.globalData.userInfo,
+    });
   },
-  onLoad: function (options) {
-
-  },
-  toMyOrder(){
+  onLoad: function (options) {},
+  toMyOrder() {
     wx.navigateTo({
-      url: '/pages/me/myOders/myOrders',
-    })
+      url: "/pages/me/myOrders/myOrders",
+    });
   },
 
-  login(){
-
+  login() {
     wx.getUserProfile({
-      desc: '用于完善用户信息',
-    })
-    .then(res=>{
-      console.log(res)
-      
+      desc: "用于完善用户信息",
+    }).then((res) => {
       this.setData({
-        userInfo:res.userInfo
-      })
+        userInfo: res.userInfo,
+      });
 
-      wx.cloud.database().collection('shop_users')
-      .where({
-        _openid:app.globalData.openid
-      })
-      .get()
-      .then(result=>{
-        console.log(result)
+      wx.cloud
+        .database()
+        .collection("shop_users")
+        .where({
+          _openid: app.globalData.openid,
+        })
+        .get()
+        .then((result) => {
+          if (result.data.length == 0) {
+            //添加用户数据到数据库
+            wx.cloud
+              .database()
+              .collection("shop_users")
+              .add({
+                data: {
+                  avatarUrl: res.userInfo.avatarUrl,
+                  nickName: res.userInfo.nickName,
+                },
+              })
+              .then((addResult) => {
+                //获取数据库用户信息
+                app.getUserInfo();
 
-        if(result.data.length == 0){
-           //添加用户数据到数据库
-          wx.cloud.database().collection('shop_users')
-          .add({
-            data:{
-              avatarUrl:res.userInfo.avatarUrl,
-              nickName: res.userInfo.nickName
-            }
-          })
-          .then(addResult=>{
+                wx.showToast({
+                  title: "登录成功",
+                });
+              });
+          } else {
+            wx.cloud
+              .database()
+              .collection("shop_users")
+              .doc(result.data[0]._id)
+              .update({
+                data: {
+                  avatarUrl: res.userInfo.avatarUrl,
+                  nickName: res.userInfo.nickName,
+                },
+              })
+              .then((updateResult) => {
+                //获取数据库用户信息
+                app.getUserInfo();
 
-            console.log(addResult)
-
-            //获取数据库用户信息
-            app.getUserInfo()
-
-            wx.showToast({
-              title: '登录成功',
-            })
-          })
-        }else{
-          wx.cloud.database().collection('shop_users')
-          .doc(result.data[0]._id)
-          .update({
-            data:{
-              avatarUrl:res.userInfo.avatarUrl,
-              nickName: res.userInfo.nickName
-            }
-          })
-          .then(updateResult=>{
-            console.log(updateResult)
-
-            //获取数据库用户信息
-            app.getUserInfo()
-
-            wx.showToast({
-              title: '登录成功',
-            })
-          })
-        }
-      })
-
-    })
-
+                wx.showToast({
+                  title: "登录成功",
+                });
+              });
+          }
+        });
+    });
   },
-  loinOut(){
-
-    app.globalData.userInfo = null
-    wx.setStorageSync('userInfo', null)
+  loinOut() {
+    app.globalData.userInfo = null;
+    wx.setStorageSync("userInfo", null);
     this.setData({
-      userInfo:null
-    })
-
-
+      userInfo: null,
+    });
   },
-  toKefu(){
+  toKefu() {
     wx.navigateTo({
-      url: '/pages/me/kefu/kefu',
-    })
+      url: "/pages/me/kefu/kefu",
+    });
   },
-  toFeedback(){
+  toFeedback() {
     wx.navigateTo({
-      url: '/pages/me/feedback/feedback',
-    })
+      url: "/pages/me/feedback/feedback",
+    });
   },
 
-  toCollect(){
+  toCollect() {
     wx.navigateTo({
-      url: '/pages/me/collect/collect',
-    })
+      url: "/pages/me/collect/collect",
+    });
   },
-  toRepair(){
+  toRepair() {
     wx.navigateTo({
-      url: '/pages/me/repair/login/login',
-    })
-  }
-  
-})
+      url: "/pages/me/repair/login/login",
+    });
+  },
+});
