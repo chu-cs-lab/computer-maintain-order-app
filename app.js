@@ -10,58 +10,53 @@ try {
 
 App({
   onLaunch() {
-    
-
     wx.cloud.init({
-      env: shared.cloud_id
-    })
+      env: shared.cloud_id,
+    });
 
-    if(wx.getStorageSync('cartList')){
-      this.globalData.cartList = wx.getStorageSync('cartList')
+    if (wx.getStorageSync("cartList")) {
+      this.globalData.cartList = wx.getStorageSync("cartList");
     }
-    if(wx.getStorageSync('userInfo')){
-      this.globalData.userInfo = wx.getStorageSync('userInfo')
+    if (wx.getStorageSync("userInfo")) {
+      this.globalData.userInfo = wx.getStorageSync("userInfo");
     }
 
     //调用云函数获取用户openid
-    wx.cloud.callFunction({
-      name:'shop_get_openid'
-    }).then(res=>{
-      
-      this.globalData.openid = res.result.openid
-    })
-
-
+    wx.cloud
+      .callFunction({
+        name: "shop_get_openid",
+      })
+      .then((res) => {
+        this.globalData.openid = res.result.openid;
+      });
   },
-  getUserInfo(){
-    wx.cloud.database().collection('shop_users')
-    .where({
-      _openid:this.globalData.openid
-    })
-    .get()
-    .then(res=>{
-      
-      this.globalData.userInfo = res.data[0]
-      wx.setStorageSync('userInfo', res.data[0])
-    })
+  getUserInfo() {
+    wx.cloud
+      .database()
+      .collection("shop_users")
+      .where({
+        _openid: this.globalData.openid,
+      })
+      .get()
+      .then((res) => {
+        this.globalData.userInfo = res.data[0];
+        wx.setStorageSync("userInfo", res.data[0]);
+      });
   },
   globalData: {
     userInfo: null,
 
-    openid:null,
+    openid: null,
 
     //订单列表列表
-    cartList:[],
+    cartList: [],
 
-    //订单列表  
-    orderList:null
-  }
-})
+    //订单列表
+    orderList: null,
+  },
+});
 
 // 家政预约维修小程序、在线维修报修小程序、上门维修服务小程序、预约上门服务、用户预约、工作人员接单上门服务
-
-
-
 
 // {
 //   "pagePath": "pages/add/add",

@@ -1,206 +1,190 @@
-const util = require('../../utils/util.js')
+const util = require("../../utils/util.js");
 Page({
-
-
   data: {
-    cloudDetaiImage:[], //商品详情图片
-    cloudCoverImage:[] //商品封面图片
+    cloudDetaiImage: [], //商品详情图片
+    cloudCoverImage: [], //商品封面图片
   },
 
-
-  onLoad(options) {
-    
-  },
-  onShow(){
-    this.getTypeList()
+  onLoad(options) {},
+  onShow() {
+    this.getTypeList();
   },
 
   //获取分类
-  getTypeList(){
-    wx.cloud.database().collection('shop_types').get()
-    .then(res=>{
-      
-      this.setData({
-        typeList:res.data
-      })
-  
-    })
+  getTypeList() {
+    wx.cloud
+      .database()
+      .collection("shop_types")
+      .get()
+      .then((res) => {
+        this.setData({
+          typeList: res.data,
+        });
+      });
   },
-  getType(event){
-    
+  getType(event) {
     this.setData({
-      currentIndex:event.currentTarget.dataset.index,
-      typeId:this.data.typeList[event.currentTarget.dataset.index]._id
-    })
+      currentIndex: event.currentTarget.dataset.index,
+      typeId: this.data.typeList[event.currentTarget.dataset.index]._id,
+    });
   },
 
   //添加商品到数据库
-  addGood(event){
-    
-    let good = event.detail.value
+  addGood(event) {
+    let good = event.detail.value;
 
-    if(!good.title){
+    if (!good.title) {
       wx.showToast({
-        icon:'error',
-        title: '名称为空',
-      })
-      return
+        icon: "error",
+        title: "名称为空",
+      });
+      return;
     }
-    if(!good.price){
+    if (!good.price) {
       wx.showToast({
-        icon:'error',
-        title: '价格为空',
-      })
-      return
+        icon: "error",
+        title: "价格为空",
+      });
+      return;
     }
-    if(!good.stockNumber){
+    if (!good.stockNumber) {
       wx.showToast({
-        icon:'error',
-        title: '数量为空',
-      })
-      return
+        icon: "error",
+        title: "数量为空",
+      });
+      return;
     }
-    if(!this.data.typeId){
+    if (!this.data.typeId) {
       wx.showToast({
-        icon:'error',
-        title: '请选择类型',
-      })
-      return
+        icon: "error",
+        title: "请选择类型",
+      });
+      return;
     }
-    if(!good.contact){
+    if (!good.contact) {
       wx.showToast({
-        icon:'error',
-        title: '联系为空',
-      })
-      return
+        icon: "error",
+        title: "联系为空",
+      });
+      return;
     }
-    if(this.data.cloudCoverImage.length==0){
+    if (this.data.cloudCoverImage.length == 0) {
       wx.showToast({
-        icon:'error',
-        title: '封面图片为空',
-      })
-      return
+        icon: "error",
+        title: "封面图片为空",
+      });
+      return;
     }
 
-    wx.cloud.database().collection('shop_goods')
-    .add({
-      data:{
-        title:good.title,
-        price:Number(good.price),
-        type:this.data.typeId,
-        cover:this.data.cloudCoverImage[0],
-        images:this.data.cloudDetaiImage,
-        text:good.text,
-        isHome:false,
-        status:true,
-        stockNumber:Number(good.stockNumber),
-        saleNumber:0,
-        contact:good.contact,
-        time:util.formatTime(new Date())
-
-      }
-    })
-    .then(res=>{
-      
-      wx.showToast({
-        title: '发布成功',
+    wx.cloud
+      .database()
+      .collection("shop_goods")
+      .add({
+        data: {
+          title: good.title,
+          price: Number(good.price),
+          type: this.data.typeId,
+          cover: this.data.cloudCoverImage[0],
+          images: this.data.cloudDetaiImage,
+          text: good.text,
+          isHome: false,
+          status: true,
+          stockNumber: Number(good.stockNumber),
+          saleNumber: 0,
+          contact: good.contact,
+          time: util.formatTime(new Date()),
+        },
       })
-      this.setData({
-        title:'',
-        price:'',
-        typeId:'',
-        currentIndex:-1,
-        cloudCoverImage:[],
-        cloudDetaiImage:[],
-        text:'',
-        stockNumber:'',
-        contact:'',
-      })
-    })
-
-
-
+      .then((res) => {
+        wx.showToast({
+          title: "发布成功",
+        });
+        this.setData({
+          title: "",
+          price: "",
+          typeId: "",
+          currentIndex: -1,
+          cloudCoverImage: [],
+          cloudDetaiImage: [],
+          text: "",
+          stockNumber: "",
+          contact: "",
+        });
+      });
   },
   //选择详情图片
-  chooseDetailImage(){
+  chooseDetailImage() {
     var that = this;
     wx.chooseImage({
       count: 9 - that.data.cloudDetaiImage.length,
-      sizeType:['original','compressed'],
-      sourceType:['album','camera'],
-      success(res){
-        
-        that.data.tempImgList = res.tempFilePaths
+      sizeType: ["original", "compressed"],
+      sourceType: ["album", "camera"],
+      success(res) {
+        that.data.tempImgList = res.tempFilePaths;
         //上传图片
-        that.uploadImageDetail()
-      }
-    })
+        that.uploadImageDetail();
+      },
+    });
   },
   //上传详情图片到云存储
-  uploadImageDetail(){
+  uploadImageDetail() {
     var that = this;
-    for(let l in this.data.tempImgList){
+    for (let l in this.data.tempImgList) {
       wx.cloud.uploadFile({
-        cloudPath:`goodImage/${Math.random()}_${Date.now()}.${this.data.tempImgList[l].match(/\.(\w+)$/)[1]}`,
+        cloudPath: `goodImage/${Math.random()}_${Date.now()}.${this.data.tempImgList[l].match(/\.(\w+)$/)[1]}`,
         filePath: this.data.tempImgList[l],
-        success(res){
-          
-          that.data.cloudDetaiImage.push(res.fileID)
+        success(res) {
+          that.data.cloudDetaiImage.push(res.fileID);
           that.setData({
-            cloudDetaiImage:that.data.cloudDetaiImage
-          })
-        }
-      })
+            cloudDetaiImage: that.data.cloudDetaiImage,
+          });
+        },
+      });
     }
   },
   //删除详情图片
-  deleteDetailImage(event){
-    
-    this.data.cloudDetaiImage.splice(event.currentTarget.dataset.index,1)
+  deleteDetailImage(event) {
+    this.data.cloudDetaiImage.splice(event.currentTarget.dataset.index, 1);
     this.setData({
-      cloudDetaiImage:this.data.cloudDetaiImage
-    })
+      cloudDetaiImage: this.data.cloudDetaiImage,
+    });
   },
- 
 
-   //选择封面图片
-   chooseCoverImage(){
+  //选择封面图片
+  chooseCoverImage() {
     var that = this;
     wx.chooseImage({
       count: 9 - that.data.cloudCoverImage.length,
-      sizeType:['original','compressed'],
-      sourceType:['album','camera'],
-      success(res){
-        
-        that.data.tempImgList = res.tempFilePaths
+      sizeType: ["original", "compressed"],
+      sourceType: ["album", "camera"],
+      success(res) {
+        that.data.tempImgList = res.tempFilePaths;
         //上传图片
-        that.uploadImageCover()
-      }
-    })
+        that.uploadImageCover();
+      },
+    });
   },
   //上传封面图片到云存储
-  uploadImageCover(){
+  uploadImageCover() {
     var that = this;
-    for(let l in this.data.tempImgList){
+    for (let l in this.data.tempImgList) {
       wx.cloud.uploadFile({
-        cloudPath:`goodImage/${Math.random()}_${Date.now()}.${this.data.tempImgList[l].match(/\.(\w+)$/)[1]}`,
+        cloudPath: `goodImage/${Math.random()}_${Date.now()}.${this.data.tempImgList[l].match(/\.(\w+)$/)[1]}`,
         filePath: this.data.tempImgList[l],
-        success(res){
-          
-          that.data.cloudCoverImage.push(res.fileID)
+        success(res) {
+          that.data.cloudCoverImage.push(res.fileID);
           that.setData({
-            cloudCoverImage:that.data.cloudCoverImage
-          })
-        }
-      })
+            cloudCoverImage: that.data.cloudCoverImage,
+          });
+        },
+      });
     }
   },
   //删除封面图片
-  deleteCoverImage(event){
-    
-    this.data.cloudCoverImage.splice(event.currentTarget.dataset.index,1)
+  deleteCoverImage(event) {
+    this.data.cloudCoverImage.splice(event.currentTarget.dataset.index, 1);
     this.setData({
-      cloudCoverImage:this.data.cloudCoverImage
-    })
+      cloudCoverImage: this.data.cloudCoverImage,
+    });
   },
-})
+});
