@@ -16,7 +16,7 @@ Page({
   },
   toMyOrder(){
     wx.navigateTo({
-      url: '/pages/me/myOders/myOrders',
+      url: '/pages/me/myOrders/myOrders',
     })
   },
 

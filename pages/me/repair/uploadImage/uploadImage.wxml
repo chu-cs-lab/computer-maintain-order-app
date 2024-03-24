@@ -4,7 +4,7 @@
 
 <view class="img-wrap">
   <!-- 选择后或拍照后的图片 -->
-  <block wx:for="{{cloudImgList}}">
+  <block wx:for="{{cloudImgList}}" wx:key="_id">
     <view class="one-img">
       <image class="close-img" src="/images/close.png" bindtap="deleteImg" data-index="{{index}}"></image>
       <image class="img-choose" src="{{item}}"></image>

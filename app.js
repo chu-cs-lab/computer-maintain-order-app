@@ -50,7 +50,7 @@ App({
 
     openid:null,
 
-    //购物车列表
+    //订单列表列表
     cartList:[],
 
     //订单列表  

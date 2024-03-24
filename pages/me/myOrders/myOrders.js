@@ -65,7 +65,7 @@ Page({
         .then(result=>{
           
           wx.showToast({
-            title: '支付成功',
+            title: '预约成功',
           })
           this.getOrderList()
 
@@ -161,7 +161,7 @@ Page({
   },
   toComment(event){
     wx.navigateTo({
-      url: '/pages/me/myOders/comment/comment?id=' + event.currentTarget.dataset.id +'&goodName=' + event.currentTarget.dataset.title +'&orderId=' + event.currentTarget.dataset.orderid,
+      url: '/pages/me/myOrders/comment/comment?id=' + event.currentTarget.dataset.id +'&goodName=' + event.currentTarget.dataset.title +'&orderId=' + event.currentTarget.dataset.orderid,
     })
   },
   //添加商品销量  减去对应库存数量

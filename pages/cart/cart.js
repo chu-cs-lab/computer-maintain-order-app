@@ -41,7 +41,7 @@ Page({
     this.setData({
       cartList: this.data.cartList
     })
-    //更新全局里和缓存里的的购物车列表数据
+    //更新全局里和缓存里的的订单列表列表数据
     app.globalData.cartList = this.data.cartList 
     wx.setStorageSync('cartList', this.data.cartList )
 
@@ -59,7 +59,7 @@ Page({
       this.setData({
         cartList: this.data.cartList
       })
-      //更新全局里和缓存里的的购物车列表数据
+      //更新全局里和缓存里的的订单列表列表数据
       app.globalData.cartList = this.data.cartList 
       wx.setStorageSync('cartList', this.data.cartList)
   
@@ -69,7 +69,7 @@ Page({
 
       wx.showModal({
         title:'提示',
-        content:'确认从购物车删除此商品吗',
+        content:'确认从订单列表删除此商品吗',
         confirmText:'确定'
       })
       .then(res=>{
@@ -80,7 +80,7 @@ Page({
           this.setData({
             cartList: this.data.cartList
           })
-          //更新全局里和缓存里的的购物车列表数据
+          //更新全局里和缓存里的的订单列表列表数据
           app.globalData.cartList = this.data.cartList 
           wx.setStorageSync('cartList', this.data.cartList)
       
@@ -101,7 +101,7 @@ Page({
     this.setData({
       cartList: this.data.cartList
     })
-    //更新全局里和缓存里的的购物车列表数据
+    //更新全局里和缓存里的的订单列表列表数据
     app.globalData.cartList = this.data.cartList 
     wx.setStorageSync('cartList', this.data.cartList)
 
@@ -134,7 +134,7 @@ Page({
     this.setData({
       cartList:this.data.cartList
     })
-    //更新全局里和缓存里的的购物车列表数据
+    //更新全局里和缓存里的的订单列表列表数据
     app.globalData.cartList = this.data.cartList 
     wx.setStorageSync('cartList', this.data.cartList)
 

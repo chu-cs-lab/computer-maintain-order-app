@@ -179,7 +179,7 @@ Page({
         .then(result=>{
           
 
-          //从购物车里面清除购物车里面的商品
+          //从订单列表里面清除订单列表里面的商品
           that.clearCartList()
 
           //添加商品销量  减去对应库存数量
@@ -189,7 +189,7 @@ Page({
             delta: 0,
             success(){
               wx.showToast({
-                title: '支付成功',
+                title: '预约成功',
               })
             }
           })

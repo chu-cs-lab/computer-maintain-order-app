@@ -62,7 +62,7 @@ Page({
       }
     })
 
-    //设置购物车商品数量
+    //设置订单列表商品数量
     
     this.setData({
       cartList: app.globalData.cartList
@@ -108,7 +108,7 @@ Page({
      imageUrl:this.data.good.cover
     }
   },
-  //添加当前商品到购物车
+  //添加当前商品到订单列表
   addCart(){
 
     //登录拦截
