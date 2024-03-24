@@ -11,13 +11,13 @@ Page({
 
   },
   getAccount(event){
-    console.log(event.detail.value)
+    
     this.setData({
       account:event.detail.value
     })
   },
   getPassword(event){
-    console.log(event.detail.value)
+    
     this.setData({
       password:event.detail.value
     })
@@ -30,7 +30,7 @@ Page({
     })
     .get()
     .then(res=>{
-      console.log(res)
+      
       if(res.data.length>0){
         wx.navigateTo({
           url: '/pages/me/repair/repair',

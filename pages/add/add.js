@@ -19,7 +19,7 @@ Page({
   getTypeList(){
     wx.cloud.database().collection('shop_types').get()
     .then(res=>{
-      console.log(res)
+      
       this.setData({
         typeList:res.data
       })
@@ -27,7 +27,7 @@ Page({
     })
   },
   getType(event){
-    console.log(event.currentTarget.dataset.index)
+    
     this.setData({
       currentIndex:event.currentTarget.dataset.index,
       typeId:this.data.typeList[event.currentTarget.dataset.index]._id
@@ -36,7 +36,7 @@ Page({
 
   //添加商品到数据库
   addGood(event){
-    console.log(event)
+    
     let good = event.detail.value
 
     if(!good.title){
@@ -101,7 +101,7 @@ Page({
       }
     })
     .then(res=>{
-      console.log(res)
+      
       wx.showToast({
         title: '发布成功',
       })
@@ -129,7 +129,7 @@ Page({
       sizeType:['original','compressed'],
       sourceType:['album','camera'],
       success(res){
-        console.log(res)
+        
         that.data.tempImgList = res.tempFilePaths
         //上传图片
         that.uploadImageDetail()
@@ -144,7 +144,7 @@ Page({
         cloudPath:`goodImage/${Math.random()}_${Date.now()}.${this.data.tempImgList[l].match(/\.(\w+)$/)[1]}`,
         filePath: this.data.tempImgList[l],
         success(res){
-          console.log(res.fileID)
+          
           that.data.cloudDetaiImage.push(res.fileID)
           that.setData({
             cloudDetaiImage:that.data.cloudDetaiImage
@@ -155,7 +155,7 @@ Page({
   },
   //删除详情图片
   deleteDetailImage(event){
-    console.log(event.currentTarget.dataset.index)
+    
     this.data.cloudDetaiImage.splice(event.currentTarget.dataset.index,1)
     this.setData({
       cloudDetaiImage:this.data.cloudDetaiImage
@@ -171,7 +171,7 @@ Page({
       sizeType:['original','compressed'],
       sourceType:['album','camera'],
       success(res){
-        console.log(res)
+        
         that.data.tempImgList = res.tempFilePaths
         //上传图片
         that.uploadImageCover()
@@ -186,7 +186,7 @@ Page({
         cloudPath:`goodImage/${Math.random()}_${Date.now()}.${this.data.tempImgList[l].match(/\.(\w+)$/)[1]}`,
         filePath: this.data.tempImgList[l],
         success(res){
-          console.log(res.fileID)
+          
           that.data.cloudCoverImage.push(res.fileID)
           that.setData({
             cloudCoverImage:that.data.cloudCoverImage
@@ -197,7 +197,7 @@ Page({
   },
   //删除封面图片
   deleteCoverImage(event){
-    console.log(event.currentTarget.dataset.index)
+    
     this.data.cloudCoverImage.splice(event.currentTarget.dataset.index,1)
     this.setData({
       cloudCoverImage:this.data.cloudCoverImage

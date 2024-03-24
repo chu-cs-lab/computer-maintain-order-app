@@ -7,13 +7,13 @@ Page({
 
 
   onLoad(options) {
-    console.log(options.orderId)
+    
     this.setData({
       orderId:options.orderId
     })
   },
   getText(e){
-    console.log(e)
+    
     this.setData({
       text:e.detail.value
     })
@@ -25,7 +25,7 @@ Page({
       sizeType:['original','compressed'],
       sourceType:['album','camera'],
       success(res){
-        console.log(res)
+        
         that.data.tempImgList = res.tempFilePaths
         that.uploadImages()
       }
@@ -38,7 +38,7 @@ Page({
         cloudPath:`repairmanImages/${Math.random()}_${Date.now()}.${this.data.tempImgList[l].match(/\.(\w+)$/)[1]}`,
         filePath:this.data.tempImgList[l],
         success(res){
-          console.log(res.fileID)
+          
           that.data.cloudImgList.push(res.fileID)
           that.setData({
             cloudImgList:that.data.cloudImgList
@@ -50,7 +50,7 @@ Page({
 
   },
   deleteImg(e){
-    console.log(e.currentTarget.dataset.index)
+    
     this.data.cloudImgList.splice(e.currentTarget.dataset.index,1)
     this.setData({
       cloudImgList:this.data.cloudImgList
@@ -74,7 +74,7 @@ Page({
           }
         })
         .then(result=>{
-          console.log(result)
+          
           wx.navigateBack({
             delta: 0,
             success(){

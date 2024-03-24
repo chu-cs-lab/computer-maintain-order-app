@@ -20,7 +20,7 @@ Page({
     //   })
     // }
 
-    console.log(app.globalData.orderList)
+    
     this.setData({
       orderList:app.globalData.orderList
     })
@@ -36,7 +36,7 @@ Page({
     
   },
   add(event){
-    console.log(event.currentTarget.dataset.index)
+    
     let index = event.currentTarget.dataset.index
 
     //库存判断
@@ -49,7 +49,7 @@ Page({
     }
     
     this.data.orderList[index].number = this.data.orderList[index].number + 1
-    //console.log(this.data.orderList)
+    //
     this.setData({
       orderList: this.data.orderList
     })
@@ -60,7 +60,7 @@ Page({
   },
   reduce(event){
 
-    console.log(event.currentTarget.dataset.index)
+    
     let index = event.currentTarget.dataset.index
     if(this.data.orderList[index].number != 1){
       this.data.orderList[index].number = this.data.orderList[index].number - 1
@@ -102,7 +102,7 @@ Page({
     wx.chooseAddress({
       success: (result) => {
 
-        console.log(result)
+        
         that.setData({
           phone:result.telNumber,
           name:result.userName,
@@ -113,14 +113,14 @@ Page({
     })
   },
   getNote(event){
-    console.log(event.detail.value)
+    
     this.setData({
       note:event.detail.value
     })
   },
   addOrder(){
 
-    console.log(util.formatTime(new Date))
+    
 
     wx.cloud.database().collection('shop_orders').add({
       data:{
@@ -142,7 +142,7 @@ Page({
         // 3：已完成
       }
     }).then(res=>{
-      console.log(res._id)
+      
       
      
       let orderId = res._id
@@ -167,7 +167,7 @@ Page({
       confirmText:'支付'
     })
     .then(res=>{
-      console.log(res)
+      
 
       if(res.confirm == true){
         wx.cloud.database().collection('shop_orders').doc(this.data.orderId)
@@ -177,7 +177,7 @@ Page({
           }
         })
         .then(result=>{
-          console.log(result)
+          
 
           //从购物车里面清除购物车里面的商品
           that.clearCartList()
@@ -241,7 +241,7 @@ Page({
         }
       })
       .then(res=>{
-        console.log(res)
+        
       })
 
     }
@@ -252,13 +252,13 @@ Page({
   },
 
   chooseDate(e){
-    console.log(e)
+    
     this.setData({
       chooseDate:e.detail.value
     })
   },
   chooseTime(e){
-    console.log(e)
+    
     this.setData({
       chooseTime:e.currentTarget.dataset.time
     })

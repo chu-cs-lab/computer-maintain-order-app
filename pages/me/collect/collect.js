@@ -6,7 +6,7 @@ Page({
   },
 
   onLoad(options) {
-    console.log(app.globalData.openid)
+    
     wx.cloud.database().collection('shop_collects')
     .where({
       _openid:app.globalData.openid
@@ -21,14 +21,14 @@ Page({
 
   },
   toGoodDetail(event){
-    console.log(event.currentTarget.dataset.id)
+    
     let id = event.currentTarget.dataset.id
     wx.navigateTo({
       url: '/pages/goodDetail/goodDetail?id=' + id ,
     })
   },
   cancelCollect(event){
-    console.log(event.currentTarget.dataset.id)
+    
     wx.cloud.database().collection('shop_collects')
       .doc(event.currentTarget.dataset.id)
       .remove()

@@ -25,7 +25,7 @@ Page({
       return
     }
 
-    console.log(app.globalData.cartList)
+    
     this.setData({
       cartList:app.globalData.cartList
     })
@@ -34,10 +34,10 @@ Page({
     this.total()
   },
   add(event){
-    console.log(event.currentTarget.dataset.index)
+    
     let index = event.currentTarget.dataset.index
     this.data.cartList[index].number = this.data.cartList[index].number + 1
-    //console.log(this.data.cartList)
+    //
     this.setData({
       cartList: this.data.cartList
     })
@@ -50,7 +50,7 @@ Page({
   },
   reduce(event){
 
-    console.log(event.currentTarget.dataset.index)
+    
     let index = event.currentTarget.dataset.index
     if(this.data.cartList[index].number != 1){
       this.data.cartList[index].number = this.data.cartList[index].number - 1
@@ -95,7 +95,7 @@ Page({
     
   },
   chooseGood(event){
-    console.log(event.currentTarget.dataset.index)
+    
     let index = event.currentTarget.dataset.index
     this.data.cartList[index].choose = !this.data.cartList[index].choose
     this.setData({
@@ -109,7 +109,7 @@ Page({
     this.total()
   },
   toGoodDetail(event){
-    console.log(event.currentTarget.dataset.id)
+    
     let id = event.currentTarget.dataset.id
     wx.navigateTo({
       url: '/pages/goodDetail/goodDetail?id=' + id ,

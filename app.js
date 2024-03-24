@@ -27,7 +27,7 @@ App({
     wx.cloud.callFunction({
       name:'shop_get_openid'
     }).then(res=>{
-      console.log(res.result.openid)
+      
       this.globalData.openid = res.result.openid
     })
 
@@ -40,7 +40,7 @@ App({
     })
     .get()
     .then(res=>{
-      console.log(res)
+      
       this.globalData.userInfo = res.data[0]
       wx.setStorageSync('userInfo', res.data[0])
     })

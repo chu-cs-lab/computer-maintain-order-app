@@ -17,7 +17,7 @@ Page({
   getTypeList(){
     wx.cloud.database().collection('shop_types').get()
     .then(res=>{
-      console.log(res)
+      
       this.setData({
         typeList:res.data
       })
@@ -28,8 +28,8 @@ Page({
   //获取对应分类下面的商品列表
   getTypeGoodsList(event){
     
-    console.log(event.currentTarget.dataset.index)
-    console.log(event.currentTarget.dataset.id)
+    
+    
     let id = event.currentTarget.dataset.id
     let index = event.currentTarget.dataset.index
 
@@ -45,7 +45,7 @@ Page({
     })
     .get()
     .then(res=>{
-      console.log(res)
+      
       this.setData({
         goodsList:res.data
       })
@@ -63,7 +63,7 @@ Page({
     })
     .get()
     .then(res=>{
-      console.log(res)
+      
       this.setData({
         goodsList:res.data
       })
@@ -71,7 +71,7 @@ Page({
 
   },
   toGoodDetail(event){
-    console.log(event.currentTarget.dataset.id)
+    
     let id = event.currentTarget.dataset.id
     wx.navigateTo({
       url: '/pages/goodDetail/goodDetail?id=' + id ,

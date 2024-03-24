@@ -10,7 +10,7 @@ Page({
 
 
   onLoad: function (options) {
-    console.log(options.id)
+    
 
     this.setData({
       goodId:options.id,
@@ -20,7 +20,7 @@ Page({
 
   },
   getInputValue(e){
-    console.log(e.detail.value)
+    
     this.setData({
       inputValue:e.detail.value
     })
@@ -50,7 +50,7 @@ Page({
         }
       })
       .then(res=>{
-        console.log(res)
+        
       })
 
 

@@ -26,7 +26,7 @@ Page({
       desc: '用于完善用户信息',
     })
     .then(res=>{
-      console.log(res)
+      
       
       this.setData({
         userInfo:res.userInfo
@@ -38,7 +38,7 @@ Page({
       })
       .get()
       .then(result=>{
-        console.log(result)
+        
 
         if(result.data.length == 0){
            //添加用户数据到数据库
@@ -51,7 +51,7 @@ Page({
           })
           .then(addResult=>{
 
-            console.log(addResult)
+            
 
             //获取数据库用户信息
             app.getUserInfo()
@@ -70,7 +70,7 @@ Page({
             }
           })
           .then(updateResult=>{
-            console.log(updateResult)
+            
 
             //获取数据库用户信息
             app.getUserInfo()

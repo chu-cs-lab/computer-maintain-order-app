@@ -7,14 +7,14 @@ Page({
 
   },
   previewCover(event){
-    console.log(event)
+    
     wx.previewImage({
       current:event.currentTarget.dataset.src,//当前图片地址
       urls: [event.currentTarget.dataset.src],//所有娱乐图片的的地址的集合
     })
   },
   previewImage(event){
-    console.log(event)
+    
     wx.previewImage({
       current:event.currentTarget.dataset.src,//当前图片地址
       urls: this.data.good.images,//所有娱乐图片的的地址的集合
@@ -23,9 +23,9 @@ Page({
 
   onLoad: function (options) {
 
-    console.log('用户信息',app.globalData.userInfo)
+    
 
-    console.log(options)
+    
     this.setData({
       goodId:options.id
     })
@@ -33,7 +33,7 @@ Page({
     //根据传过来的id来查询商品
     wx.cloud.database().collection('shop_goods').doc(options.id).get()
     .then(res=>{
-      console.log(res)
+      
       this.setData({
         good:res.data
       })
@@ -63,7 +63,7 @@ Page({
     })
 
     //设置购物车商品数量
-    console.log(app.globalData.cartList)
+    
     this.setData({
       cartList: app.globalData.cartList
     })
@@ -83,7 +83,7 @@ Page({
     })
     .get()
     .then(res=>{
-      console.log(res)
+      
       this.setData({
         commentList:res.data
       })
@@ -136,7 +136,7 @@ Page({
       wx.setStorageSync('cartList', app.globalData.cartList)
     }else{
       for(let idx in cartList){
-        console.log(idx)
+        
         if(cartList[idx]._id == this.data.good._id){
           index = idx
         }
@@ -216,7 +216,7 @@ Page({
       }
     })
     .then(res=>{
-      console.log(res)
+      
       wx.showToast({
         title: '收藏成功',
       })
@@ -232,7 +232,7 @@ Page({
     })
     .get()
     .then(res=>{
-      console.log(res)
+      
       if(res.data.length > 0){
         this.setData({
           isCollected:true
@@ -252,7 +252,7 @@ Page({
     })
     .get()
     .then(res=>{
-      console.log(res)
+      
       wx.cloud.database().collection('shop_collects')
       .doc(res.data[0]._id)
       .remove()

@@ -14,11 +14,11 @@ Page({
 
     this.getOrderList()
 
-    console.log(app.globalData.openid)
+    
 
   },
   choooType(event){
-    console.log(event.currentTarget.dataset.type)
+    
     let status = event.currentTarget.dataset.type
     let whereObj = {}
     if(status!=0){
@@ -43,7 +43,7 @@ Page({
     .orderBy('time','desc')
     .get()
     .then(res=>{
-      console.log(res)
+      
       this.setData({
         orderList:res.data
       })
@@ -52,14 +52,14 @@ Page({
 
   pay(event){
     let index = event.currentTarget.dataset.index
-    console.log(index)
+    
     wx.showModal({
       title:'提示',
       content:'是否支付商品价格' + this.data.orderList[index].totalMoney + '元',
       confirmText:'支付'
     })
     .then(res=>{
-      console.log(res)
+      
 
       if(res.confirm == true){
         wx.cloud.database().collection('shop_orders').doc(this.data.orderList[index]._id)
@@ -69,7 +69,7 @@ Page({
           }
         })
         .then(result=>{
-          console.log(result)
+          
           wx.showToast({
             title: '支付成功',
           })
@@ -96,7 +96,7 @@ Page({
 
   cancel(event){
     let index = event.currentTarget.dataset.index
-    console.log(index)
+    
 
     wx.showModal({
       title:'提示',
@@ -112,7 +112,7 @@ Page({
           }
         })
         .then(result=>{
-          console.log(result)
+          
           wx.showToast({
             title: '取消成功',
           })
@@ -135,7 +135,7 @@ Page({
   },
   confirm(event){
     let index = event.currentTarget.dataset.index
-    console.log(index)
+    
     
     wx.showModal({
       title:'提示',
@@ -151,7 +151,7 @@ Page({
           }
         })
         .then(result=>{
-          console.log(result)
+          
           wx.showToast({
             title: '保存成功',
           })
@@ -184,7 +184,7 @@ Page({
         }
       })
       .then(res=>{
-        console.log(res)
+        
       })
 
     }
@@ -193,7 +193,7 @@ Page({
   //接单
   jiedan(event){
     let index = event.currentTarget.dataset.index
-    console.log(index)
+    
     
     wx.showModal({
       title:'提示',
@@ -210,7 +210,7 @@ Page({
           }
         })
         .then(result=>{
-          console.log(result)
+          
           wx.showToast({
             title: '接单成功',
           })
@@ -224,13 +224,13 @@ Page({
   },
   toUploadImage(event){
     let index = event.currentTarget.dataset.index
-    console.log(index)
+    
     wx.navigateTo({
       url: '/pages/me/repair/uploadImage/uploadImage?orderId=' + this.data.orderList[index]._id,
     })
   },
   previewImage(event){
-    console.log(event)
+    
     wx.previewImage({
       current:event.currentTarget.dataset.src,//当前图片地址
       urls: this.data.orderList[event.currentTarget.dataset.index].repairImages,//所有娱乐图片的的地址的集合
