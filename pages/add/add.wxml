@@ -1,16 +1,16 @@
 
 <form bindsubmit="addGood">
 
-  <view class="title">请输入商品名称</view>
+  <view class="title">请输入服务名称</view>
   <input name="title" value="{{title}}" type="text" class="ipt"/>
 
-  <view class="title">请输入商品价格/元</view>
+  <view class="title">请输入服务价格/元</view>
   <input name="price" value="{{price}}" type="number" class="ipt"/>
 
-  <view class="title">请输入商品数量</view>
+  <view class="title">请输入服务数量</view>
   <input name="stockNumber" value="{{stockNumber}}" type="number" class="ipt"/>
 
-  <view class="title">请选择商品类型</view>
+  <view class="title">请选择服务类型</view>
   <view class="type-wrap">
     <block wx:for="{{typeList}}" wx:key="_id">
       <view class="type-item {{currentIndex==index?'choose-type':'no-choose'}}" bindtap="getType" data-index="{{index}}">{{item.name}}</view>
@@ -20,10 +20,10 @@
   <view class="title">请输入联系方式</view>
   <input name="contact" value="{{contact}}" type="text" class="ipt"/>
 
-  <view class="title">请输入商品描述内容</view>
+  <view class="title">请输入服务描述内容</view>
   <textarea name="text" value="{{text}}" class="text-area"></textarea>
 
-  <view class="title">请上传商品封面图片</view>
+  <view class="title">请上传服务封面图片</view>
   <view class="img-wrap">
     <block wx:for="{{cloudCoverImage}}" wx:key="_id">
       <view class="one-img">
@@ -37,7 +37,7 @@
     </view>
   </view>
 
-  <view class="title">请上传商品详情图片</view>
+  <view class="title">请上传服务详情图片</view>
   <view class="img-wrap">
     <block wx:for="{{cloudDetaiImage}}" wx:key="_id">
       <view class="one-img">

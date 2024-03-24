@@ -7,8 +7,6 @@
     "pages/index/search/search",
     "pages/order/order",
     "pages/me/myOrders/myOrders",
-    "pages/me/kefu/kefu",
-    "pages/me/feedback/feedback",
     "pages/me/myOrders/comment/comment",
     "pages/me/collect/collect",
     "pages/add/add",

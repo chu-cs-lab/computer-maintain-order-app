@@ -20,7 +20,7 @@ Page({
       goodId: options.id,
     });
 
-    //根据传过来的id来查询商品
+    //根据传过来的id来查询服务
     wx.cloud
       .database()
       .collection("shop_goods")
@@ -30,7 +30,7 @@ Page({
         this.setData({
           good: res.data,
         });
-        //库存或者商品状态的拦截
+        //库存或者服务状态的拦截
         if (res.data.stockNumber <= 0) {
           wx.navigateBack({
             delta: 0,
@@ -48,14 +48,14 @@ Page({
             success() {
               wx.showToast({
                 icon: "error",
-                title: "商品已下架",
+                title: "服务已下架",
               });
             },
           });
         }
       });
 
-    //设置订单列表商品数量
+    //设置订单列表服务数量
 
     this.setData({
       cartList: app.globalData.cartList,
@@ -69,7 +69,7 @@ Page({
   },
   //获取评论内容
   getGoodComment() {
-    //根据传过来的id来查询商品
+    //根据传过来的id来查询服务
     wx.cloud
       .database()
       .collection("shop_comments")
@@ -101,7 +101,7 @@ Page({
       imageUrl: this.data.good.cover,
     };
   },
-  //添加当前商品到订单列表
+  //添加当前服务到订单列表
   addCart() {
     //登录拦截
     if (!app.globalData.userInfo) {

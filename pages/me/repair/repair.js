@@ -48,7 +48,7 @@ Page({
     wx.showModal({
       title: "提示",
       content:
-        "是否支付商品价格" + this.data.orderList[index].totalMoney + "元",
+        "是否支付服务价格" + this.data.orderList[index].totalMoney + "元",
       confirmText: "支付",
     }).then((res) => {
       if (res.confirm == true) {
@@ -67,7 +67,7 @@ Page({
             });
             this.getOrderList();
 
-            //添加商品销量  减去对应库存数量
+            //添加服务销量  减去对应库存数量
             this.addSaleNumber(index);
           });
       } else {
@@ -150,7 +150,7 @@ Page({
         event.currentTarget.dataset.orderid,
     });
   },
-  //添加商品销量  减去对应库存数量
+  //添加服务销量  减去对应库存数量
   addSaleNumber(index) {
     for (let l in this.data.orderList[index].goods) {
       wx.cloud

@@ -16,7 +16,7 @@
 
 
 
-<view class="good-detail-title">商品详情</view>
+<view class="good-detail-title">服务详情</view>
 
 <view class="good-detail-box">
   <view>{{good.text}}</view>
@@ -29,7 +29,7 @@
 
 
 
-<view class="good-detail-title">商品评价</view>
+<view class="good-detail-title">服务评价</view>
 
 <block wx:for="{{commentList}}" wx:key="_id">
   <view class="comment-wrap">

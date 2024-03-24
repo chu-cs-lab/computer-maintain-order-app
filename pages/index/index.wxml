@@ -4,14 +4,14 @@
 <view class="search-wrap" bindtap="toSearch">
   <view class="search-box">
 
-    <input type="text" placeholder="请输入商品关键词" class="input-cell"/>
+    <input type="text" placeholder="请输入服务关键词" class="input-cell"/>
     <image src="/images/search.png" class="search-img"></image>
 
   </view>
 </view>
 
 
-<!-- 商品列表 -->
+<!-- 服务列表 -->
 <view class="goods-box">
   <block wx:for="{{goodsList}}" wx:key="_id">
     <view bindtap="toGoodDetail" data-id="{{item._id}}">

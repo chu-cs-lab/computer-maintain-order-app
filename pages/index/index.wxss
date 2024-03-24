@@ -64,7 +64,7 @@
   width: 25%;
 }
 
-/* 商品列表 */
+/* 服务列表 */
 .goods-box {
   margin-top:50rpx;
   display: flex;

@@ -59,7 +59,7 @@ Page({
     } else {
       wx.showModal({
         title: "提示",
-        content: "确认从订单列表删除此商品吗",
+        content: "确认从订单列表删除此服务吗",
         confirmText: "确定",
       }).then((res) => {
         if (res.confirm == true) {
@@ -149,7 +149,7 @@ Page({
     if (app.globalData.orderList.length == 0) {
       wx.showToast({
         icon: "error",
-        title: "请选择商品",
+        title: "请选择服务",
       });
       return;
     }

@@ -79,11 +79,6 @@ Page({
       userInfo: null,
     });
   },
-  toKefu() {
-    wx.navigateTo({
-      url: "/pages/me/kefu/kefu",
-    });
-  },
   toFeedback() {
     wx.navigateTo({
       url: "/pages/me/feedback/feedback",

@@ -2,14 +2,14 @@
 <view class="search-wrap" bindtap="toSearch">
   <view class="search-box">
 
-    <input bindinput="getValue" type="text" placeholder="请输入商品关键词" class="input-cell"/>
+    <input bindinput="getValue" type="text" placeholder="请输入服务关键词" class="input-cell"/>
     <image src="/images/search.png" class="search-img" bindtap="search"></image>
 
   </view>
 </view>
 
 
-<view class="no-good" wx:if="{{goodList.length == 0}}">没有对应的商品</view>
+<view class="no-good" wx:if="{{goodList.length == 0}}">没有对应的服务</view>
 
 <block wx:for="{{goodList}}" wx:key="_id">
   <view class="good-box" bindtap="toGoodDetail" data-id="{{item._id}}">

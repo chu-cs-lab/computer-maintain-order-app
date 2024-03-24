@@ -1,4 +1,4 @@
-/* 商品列表 */
+/* 服务列表 */
 .good-box {
   display: flex;
   flex-direction: row;

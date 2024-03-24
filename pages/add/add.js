@@ -1,8 +1,8 @@
 const util = require("../../utils/util.js");
 Page({
   data: {
-    cloudDetaiImage: [], //商品详情图片
-    cloudCoverImage: [], //商品封面图片
+    cloudDetaiImage: [], //服务详情图片
+    cloudCoverImage: [], //服务封面图片
   },
 
   onLoad(options) {},
@@ -29,7 +29,7 @@ Page({
     });
   },
 
-  //添加商品到数据库
+  //添加服务到数据库
   addGood(event) {
     let good = event.detail.value;
 

@@ -3,7 +3,7 @@ Page({
 
   onLoad: function (options) {},
   onShow() {
-    //获取商品列表
+    //获取服务列表
     this.getGoodsList();
   },
   getGoodsList() {

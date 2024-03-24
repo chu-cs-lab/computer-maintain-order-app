@@ -153,7 +153,7 @@ Page({
     let that = this;
     wx.showModal({
       title: "提示",
-      content: "是否支付商品价格" + this.data.sum + "元",
+      content: "是否支付服务价格" + this.data.sum + "元",
       confirmText: "支付",
     }).then((res) => {
       if (res.confirm == true) {
@@ -167,10 +167,10 @@ Page({
             },
           })
           .then((result) => {
-            //从订单列表里面清除订单列表里面的商品
+            //从订单列表里面清除订单列表里面的服务
             that.clearCartList();
 
-            //添加商品销量  减去对应库存数量
+            //添加服务销量  减去对应库存数量
             that.addSaleNumber();
 
             wx.navigateBack({
@@ -205,7 +205,7 @@ Page({
     }
     wx.setStorageSync("cartList", app.globalData.cartList);
   },
-  //添加商品销量  减去对应库存数量
+  //添加服务销量  减去对应库存数量
   addSaleNumber() {
     for (let l in app.globalData.orderList) {
       wx.cloud
