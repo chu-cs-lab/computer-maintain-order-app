@@ -35,7 +35,7 @@ Page({
     this.setData({
       cartList: this.data.cartList,
     });
-    //更新全局里和缓存里的的订单列表列表数据
+    //更新全局里和缓存里的的预约列表列表数据
     app.globalData.cartList = this.data.cartList;
     wx.setStorageSync("cartList", this.data.cartList);
 
@@ -50,7 +50,7 @@ Page({
       this.setData({
         cartList: this.data.cartList,
       });
-      //更新全局里和缓存里的的订单列表列表数据
+      //更新全局里和缓存里的的预约列表列表数据
       app.globalData.cartList = this.data.cartList;
       wx.setStorageSync("cartList", this.data.cartList);
 
@@ -59,7 +59,7 @@ Page({
     } else {
       wx.showModal({
         title: "提示",
-        content: "确认从订单列表删除此服务吗",
+        content: "确认从预约列表删除此服务吗",
         confirmText: "确定",
       }).then((res) => {
         if (res.confirm == true) {
@@ -68,7 +68,7 @@ Page({
           this.setData({
             cartList: this.data.cartList,
           });
-          //更新全局里和缓存里的的订单列表列表数据
+          //更新全局里和缓存里的的预约列表列表数据
           app.globalData.cartList = this.data.cartList;
           wx.setStorageSync("cartList", this.data.cartList);
 
@@ -84,7 +84,7 @@ Page({
     this.setData({
       cartList: this.data.cartList,
     });
-    //更新全局里和缓存里的的订单列表列表数据
+    //更新全局里和缓存里的的预约列表列表数据
     app.globalData.cartList = this.data.cartList;
     wx.setStorageSync("cartList", this.data.cartList);
 
@@ -114,7 +114,7 @@ Page({
     this.setData({
       cartList: this.data.cartList,
     });
-    //更新全局里和缓存里的的订单列表列表数据
+    //更新全局里和缓存里的的预约列表列表数据
     app.globalData.cartList = this.data.cartList;
     wx.setStorageSync("cartList", this.data.cartList);
 
@@ -135,7 +135,7 @@ Page({
       sum: sum.toFixed(2),
     });
   },
-  //跳入订单页面
+  //跳入预约页面
   toOrder() {
     let orderList = [];
     for (let index in this.data.cartList) {

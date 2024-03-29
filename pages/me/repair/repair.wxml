@@ -13,7 +13,7 @@
 <block wx:for="{{orderList}}" wx:key="_id">
   <view class="order-wrap">
 
-      <view class="oder-id">订单号：{{item._id}}</view>
+      <view class="oder-id">预约号：{{item._id}}</view>
       <block wx:for="{{item.goods}}" wx:for-item="good" wx:key="_id">
         <view class="good-wrap">
           <image class="good-img" src="{{good.cover}}"></image>
@@ -38,7 +38,7 @@
       </block>
 
 
-      <view class="line-item">订单时间：{{item.time}}</view>
+      <view class="line-item">预约时间：{{item.time}}</view>
 
 
 

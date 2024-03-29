@@ -128,7 +128,7 @@ Page({
           status: -1,
           //预约时间
           yuyueTime: this.data.chooseDate + " " + this.data.chooseTime,
-          //-2: 取消订单
+          //-2: 取消预约
           //-1：待支付
           // 0: 待发货
           // 1：待收货 +已发货 ；
@@ -167,7 +167,7 @@ Page({
             },
           })
           .then((result) => {
-            //从订单列表里面清除订单列表里面的服务
+            //从预约列表里面清除预约列表里面的服务
             that.clearCartList();
 
             //添加服务销量  减去对应库存数量

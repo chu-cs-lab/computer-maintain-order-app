@@ -30,7 +30,7 @@ Page({
         },
       })
       .then((res) => {
-        //更新订单状态为已完成
+        //更新预约状态为已完成
         wx.cloud
           .database()
           .collection("shop_orders")

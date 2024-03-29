@@ -13,7 +13,7 @@
 <block wx:for="{{orderList}}">
   <view class="order-wrap">
 
-      <view class="oder-id">订单号：{{item._id}}</view>
+      <view class="oder-id">预约号：{{item._id}}</view>
       <block wx:for="{{item.goods}}" wx:for-item="good" wx:key="_id">
         <view class="good-wrap">
           <image class="good-img" src="{{good.cover}}"></image>
@@ -37,12 +37,12 @@
         <image src="{{itemm}}" class="repair-img" bindtap="previewImage" data-src="{{itemm}}" data-index="{{index}}"></image>
       </block>
 
-      <view class="line-item">订单时间：{{item.time}}</view>
+      <view class="line-item">预约时间：{{item.time}}</view>
 
       <view class="but-wrap">
         <button wx:if="{{item.status==-1}}" size="mini" type="primary" bindtap="pay" data-index="{{index}}">支付</button>
 
-        <button wx:if="{{item.status==0}}" size="mini" type="primary" bindtap="cancel" data-index="{{index}}">取消订单</button>
+        <button wx:if="{{item.status==0}}" size="mini" type="primary" bindtap="cancel" data-index="{{index}}">取消预约</button>
 
         <!-- <button wx:if="{{item.status==1}}" size="mini" type="primary" bindtap="confirm" data-index="{{index}}">已完成</button> -->
 

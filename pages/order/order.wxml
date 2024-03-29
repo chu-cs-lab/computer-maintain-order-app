@@ -59,7 +59,7 @@
       <text class="total-price-tag">￥</text>
       <text class="total-price-money">{{sum}}</text>
     </view>
-    <view class="total-button" bindtap="addOrder">提交订单</view>
+    <view class="total-button" bindtap="addOrder">提交预约</view>
   </view>
 </view>
 

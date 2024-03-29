@@ -48,10 +48,10 @@ App({
 
     openid: null,
 
-    //订单列表列表
+    //预约列表列表
     cartList: [],
 
-    //订单列表
+    //预约列表
     orderList: null,
   },
 });
