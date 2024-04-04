@@ -1,7 +1,16 @@
 const app = getApp();
 const util = require("../../utils/util.js");
 Page({
-  data: {},
+  data: {
+    timeList:[
+      "8:00-10:00",
+      "10:00-12:00",
+      "14:00-16:00",
+      "16:00-18:00",
+      "18:00-20:00"
+    ],
+    timeIndex:0
+  },
 
   onLoad: function (options) {
     // if(app.globalData.orderList.length<10){
@@ -242,8 +251,10 @@ Page({
     });
   },
   chooseTime(e) {
+    console.log(e);
     this.setData({
-      chooseTime: e.currentTarget.dataset.time,
+      chooseTime: this.data.timeList[e.detail.value],
+      timeIndex : e.detail.value
     });
   },
 });

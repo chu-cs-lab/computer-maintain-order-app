@@ -141,8 +141,13 @@
 
 /* 预约时间 */
 .picker-cell {
-  margin: 20rpx;
-
+  /* margin: 20rpx; */
+  text-align: center;
+  padding: 10px;
+  /* border:1px solid rgb(187, 187, 187); */
+  /* border-radius: 5px; */
+  color:white;
+  background-color: #FF6146;
 }
 .time-wrap {
   padding: 20rpx;
@@ -156,8 +161,14 @@
   border: 1rpx solid #8f8f8f;
   padding: 5rpx;
   margin: 0 10rpx 20rpx 0;
+  padding: 5px;
+  border-radius: 5px;
 }
 .choose-time {
   background-color: #FF6146;
   color: #fff;
+}
+.order-row{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
 }
