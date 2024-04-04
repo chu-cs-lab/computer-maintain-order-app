@@ -33,6 +33,6 @@
       <text class="total-price-tag">￥</text>
       <text class="total-price-money">{{sum}}</text>
     </view>
-    <view class="total-button" bindtap="toOrder">预约</view>
+    <view class="total-button" bindtap="toOrder">结算</view>
   </view>
 </view>
