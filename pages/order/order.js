@@ -115,7 +115,7 @@ Page({
     });
   },
   addOrder() {
-    if(!(this.data.name && this.data.phone && this.data.address && this.data.yuyueTime)){
+    if(!(this.data.name && this.data.phone && this.data.address && this.data.chooseDate && this.data.chooseTime)){
       wx.showToast({
         title: '信息不完整!请检查',
         icon: 'none'
