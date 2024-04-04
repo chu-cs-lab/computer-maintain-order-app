@@ -23,6 +23,7 @@ Page({
 
     //读取缓存里的地址
     let address = wx.getStorageSync("address");
+   if(address){
     this.setData({
       phone: address.telNumber,
       name: address.userName,
@@ -32,6 +33,7 @@ Page({
         address.countyName +
         address.detailInfo,
     });
+   }
   },
   add(event) {
     let index = event.currentTarget.dataset.index;
@@ -113,6 +115,13 @@ Page({
     });
   },
   addOrder() {
+    if(!(this.data.name && this.data.phone && this.data.address && this.data.yuyueTime)){
+      wx.showToast({
+        title: '信息不完整!请检查',
+        icon: 'none'
+      })
+      return;
+    }
     wx.cloud
       .database()
       .collection("shop_orders")
