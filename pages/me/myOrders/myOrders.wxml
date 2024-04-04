@@ -37,7 +37,7 @@
         <image src="{{itemm}}" class="repair-img" bindtap="previewImage" data-src="{{itemm}}" data-index="{{index}}"></image>
       </block>
 
-      <view class="line-item">订单时间：{{item.time}}</view>
+      <view class="line-item">下单时间：{{item.time}}</view>
 
       <view class="but-wrap">
         <button wx:if="{{item.status==-1}}" size="mini" type="primary" bindtap="pay" data-index="{{index}}">支付</button>
