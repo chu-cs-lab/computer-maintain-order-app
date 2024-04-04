@@ -1,26 +1,31 @@
 Page({
-  data: {},
+  data: {
+    loading: true
+  },
 
   onLoad: function (options) {},
-  onShow() {
+  async onShow() {
+
     //获取服务列表
-    this.getGoodsList();
+    await this.getGoodsList();
+      this.setData({
+        loading: false
+      })
   },
-  getGoodsList() {
-    wx.cloud
+  async getGoodsList() {
+    const res = await wx.cloud
       .database()
       .collection("shop_goods")
       .where({
         status: true,
         isHome: true,
-        stockNumber: wx.cloud.database().command.gt(0), //库存数量必须大于0
       })
       .get()
-      .then((res) => {
-        this.setData({
-          goodsList: res.data,
-        });
-      });
+      console.log(res.data)
+    this.setData({
+      goodsList: res.data,
+    });
+    console.log(1111)
   },
   toGoodDetail(event) {
     let id = event.currentTarget.dataset.id;

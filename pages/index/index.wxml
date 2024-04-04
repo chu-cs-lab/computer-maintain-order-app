@@ -1,34 +1,35 @@
+<import src="index.skeleton.wxml"/>
+<template is="skeleton" wx:if="{{loading}}" />
+<view wx:else>
+  <view class="search-wrap" bindtap="toSearch">
+    <view class="search-box">
+
+      <input type="text" placeholder="请输入服务关键词" class="input-cell" />
+      <image src="/images/search.png" class="search-img"></image>
+
+    </view>
+  </view>
 
 
-<!-- 搜索 -->
-<view class="search-wrap" bindtap="toSearch">
-  <view class="search-box">
-
-    <input type="text" placeholder="请输入服务关键词" class="input-cell"/>
-    <image src="/images/search.png" class="search-img"></image>
+  <!-- 服务列表 -->
+  <view class="goods-box" wx:if="{{goodsList}}">
+    <block wx:for="{{goodsList}}" wx:key="_id">
+      <view bindtap="toGoodDetail" data-id="{{item._id}}">
+        <view class="img-box">
+          <image src="{{item.cover}}"  class="good-img" mode="heightFix"></image>
+        </view>
+        <view class="good-title">
+          <text>{{item.title}}</text>
+        </view>
+        <view class="good-bootom">
+          <view class="good-tag">{{item.saleNumber}}人预约</view>
+          <view class="good-price">￥{{item.price}}</view>
+        </view>
+      </view>
+    </block>
 
   </view>
+
+
+  <view style="height: 100rpx;"></view>
 </view>
-
-
-<!-- 服务列表 -->
-<view class="goods-box">
-  <block wx:for="{{goodsList}}" wx:key="_id">
-    <view bindtap="toGoodDetail" data-id="{{item._id}}">
-    <view class="img-box">
-      <image src="{{item.cover}}" mode="heightFix" class="good-img"></image>
-    </view>
-      <view class="good-title">
-        <text>{{item.title}}</text>
-      </view>
-      <view class="good-bootom">
-        <view class="good-tag">{{item.saleNumber}}人预约</view>
-        <view class="good-price">￥{{item.price}}</view>
-      </view>
-    </view>
-  </block>
-
-</view>
-
-
-<view style="height: 100rpx;"></view>

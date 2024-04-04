@@ -1,0 +1,66 @@
+<!--
+此文件为开发者工具生成，生成时间: 2024/4/4下午6:10:29
+使用方法：
+在 E:\code\repo\computer-maintain-order-app\pages\index\index.wxml 引入模板
+
+```
+<import src="index.skeleton.wxml"/>
+<template is="skeleton" wx:if="{{loading}}" />
+```
+
+在 E:\code\repo\computer-maintain-order-app\pages\index\index.wxss 中引入样式
+```
+@import "./index.skeleton.wxss";
+```
+
+更多详细信息可以参考文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/skeleton.html
+-->
+<template name="skeleton">
+  <view class="sk-container">
+    <view class="search-wrap">
+      <view class="search-box">
+        <view class="input-cell sk-image" placeholder="请输入服务关键词" type="text"></view>
+        <image class="search-img sk-image"></image>
+      </view>
+    </view>
+    <view class="goods-box">
+      <view data-id="ee9fc4d065ffe3dd004f5eca5bc70f8f">
+        <view class="img-box">
+          <image class="good-img sk-image" mode="heightFix" style="width: 127.37px;"></image>
+        </view>
+        <view class="good-title">
+          <text class="sk-transparent sk-text-14-2857-582 sk-text">黑屏/无法开机</text>
+        </view>
+        <view class="good-bootom">
+          <view class="good-tag sk-transparent sk-text-14-2857-783 sk-text">2人预约</view>
+          <view class="good-price sk-transparent sk-text-14-2857-10 sk-text">￥50</view>
+        </view>
+      </view>
+      <view data-id="e67013a465ffe416004f3cef0b2b841c">
+        <view class="img-box">
+          <image class="good-img sk-image" mode="heightFix" style="width: 135.883px;"></image>
+        </view>
+        <view class="good-title">
+          <text class="sk-transparent sk-text-14-2857-253 sk-text">整机装配</text>
+        </view>
+        <view class="good-bootom">
+          <view class="good-tag sk-transparent sk-text-14-2857-738 sk-text">0人预约</view>
+          <view class="good-price sk-transparent sk-text-14-2857-484 sk-text">￥200</view>
+        </view>
+      </view>
+      <view data-id="40fc38da65ffef92004fb8546e156fa4">
+        <view class="img-box">
+          <image class="good-img sk-image" mode="heightFix" style="width: 151.9px;"></image>
+        </view>
+        <view class="good-title">
+          <text class="sk-transparent sk-text-14-2857-353 sk-text">软件安装</text>
+        </view>
+        <view class="good-bootom">
+          <view class="good-tag sk-transparent sk-text-14-2857-81 sk-text">3人预约</view>
+          <view class="good-price sk-transparent sk-text-14-2857-770 sk-text">￥200</view>
+        </view>
+      </view>
+    </view>
+    <view style="height: 42px;"></view>
+  </view>
+</template>

@@ -25,7 +25,13 @@ Page({
     url: 'userProfile/userProfile',
   })
  },
-
+logout(){
+  wx.setStorageSync('userInfo', null);
+  this.setData({
+    userInfo: null
+  })
+  app.globalData.userInfo = null;
+},
   toCollect() {
     wx.navigateTo({
       url: "/pages/me/collect/collect",
