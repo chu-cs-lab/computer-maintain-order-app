@@ -1,6 +1,1 @@
-
-
-<input type="text" placeholder="请输入员工账号" class="ipt" bindinput="getAccount"/>
-<input type="text" placeholder="请输入账号密码" class="ipt" bindinput="getPassword"/>
-
-<button type="primary" bindtap="login">登录</button>
+<view></view>
