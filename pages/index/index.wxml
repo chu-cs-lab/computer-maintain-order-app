@@ -23,7 +23,6 @@
             <text>{{item.title}}</text>
           </view>
           <view class="good-bootom">
-            <view class="good-tag">{{item.saleNumber}}人预约</view>
             <view class="good-price">￥{{item.price}}</view>
           </view>
         </view>
