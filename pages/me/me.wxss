@@ -22,7 +22,7 @@
 .but-login {
   background-color: #FF6146;
   color: #fff;
-  margin: 80rpx 0;
+  margin: 80rpx 10rpx;
 }
 
 .order-wrap {

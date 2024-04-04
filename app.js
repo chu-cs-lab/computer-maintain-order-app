@@ -30,18 +30,19 @@ App({
         this.globalData.openid = res.result.openid;
       });
   },
-  getUserInfo() {
-    wx.cloud
+  async getUserInfo() {
+    const res = await wx.cloud
       .database()
       .collection("shop_users")
       .where({
         _openid: this.globalData.openid,
       })
       .get()
-      .then((res) => {
-        this.globalData.userInfo = res.data[0];
-        wx.setStorageSync("userInfo", res.data[0]);
-      });
+    this.globalData.userInfo = res.data[0];
+
+    // 存储到本地存储
+    wx.setStorageSync("userInfo", res.data[0]);
+
   },
   globalData: {
     userInfo: null,

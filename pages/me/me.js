@@ -1,11 +1,18 @@
 const app = getApp();
+
 Page({
-  data: {},
+  data: {
+    userInfo: null
+  },
 
   onShow() {
-    this.setData({
-      userInfo: app.globalData.userInfo,
-    });
+    if(app.globalData.userInfo !== null){
+      this.setData({
+        userInfo: app.globalData.userInfo,
+      });
+
+     
+    } 
   },
   onLoad: function (options) {},
   toMyOrder() {
@@ -13,77 +20,11 @@ Page({
       url: "/pages/me/myOrders/myOrders",
     });
   },
-
-  login() {
-    wx.getUserProfile({
-      desc: "用于完善用户信息",
-    }).then((res) => {
-      this.setData({
-        userInfo: res.userInfo,
-      });
-
-      wx.cloud
-        .database()
-        .collection("shop_users")
-        .where({
-          _openid: app.globalData.openid,
-        })
-        .get()
-        .then((result) => {
-          if (result.data.length == 0) {
-            //添加用户数据到数据库
-            wx.cloud
-              .database()
-              .collection("shop_users")
-              .add({
-                data: {
-                  avatarUrl: res.userInfo.avatarUrl,
-                  nickName: res.userInfo.nickName,
-                },
-              })
-              .then((addResult) => {
-                //获取数据库用户信息
-                app.getUserInfo();
-
-                wx.showToast({
-                  title: "登录成功",
-                });
-              });
-          } else {
-            wx.cloud
-              .database()
-              .collection("shop_users")
-              .doc(result.data[0]._id)
-              .update({
-                data: {
-                  avatarUrl: res.userInfo.avatarUrl,
-                  nickName: res.userInfo.nickName,
-                },
-              })
-              .then((updateResult) => {
-                //获取数据库用户信息
-                app.getUserInfo();
-
-                wx.showToast({
-                  title: "登录成功",
-                });
-              });
-          }
-        });
-    });
-  },
-  loinOut() {
-    app.globalData.userInfo = null;
-    wx.setStorageSync("userInfo", null);
-    this.setData({
-      userInfo: null,
-    });
-  },
-  toFeedback() {
-    wx.navigateTo({
-      url: "/pages/me/feedback/feedback",
-    });
-  },
+ login(){
+  wx.navigateTo({
+    url: 'userProfile/userProfile',
+  })
+ },
 
   toCollect() {
     wx.navigateTo({

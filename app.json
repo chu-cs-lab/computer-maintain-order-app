@@ -12,7 +12,8 @@
     "pages/add/add",
     "pages/me/repair/repair",
     "pages/me/repair/uploadImage/uploadImage",
-    "pages/me/repair/login/login"
+    "pages/me/repair/login/login",
+    "pages/me/userProfile/userProfile"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -46,5 +47,7 @@
       }
     ]
   },
-  "requiredPrivateInfos": ["chooseAddress"]
+  "requiredPrivateInfos": [
+    "chooseAddress"
+  ]
 }

@@ -7,7 +7,7 @@
   },
   "setting": {
     "urlCheck": true,
-    "es6": false,
+    "es6": true,
     "enhance": false,
     "postcss": true,
     "preloadBackgroundData": false,
@@ -48,7 +48,7 @@
   "compileType": "miniprogram",
   "appid": "wxdada5643741b12ee",
   "projectname": "computer-maintain-order-app",
-  "libVersion": "2.17.0",
+  "libVersion": "2.27.1",
   "condition": {},
   "editorSetting": {
     "tabIndent": "insertSpaces",
