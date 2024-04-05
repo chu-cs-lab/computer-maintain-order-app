@@ -109,7 +109,7 @@ Page({
 
     wx.showModal({
       title: "提示",
-      content: "确认已收货吗",
+      content: "确认维修完成吗？",
       confirmText: "确定",
     }).then((res) => {
       if (res.confirm == true) {
@@ -124,7 +124,7 @@ Page({
           })
           .then((result) => {
             wx.showToast({
-              title: "保存成功",
+              title: "服务完成",
             });
             this.getOrderList();
           });

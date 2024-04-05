@@ -111,34 +111,7 @@ Page({
   },
   //退款
   refund() {},
-  confirm(event) {
-    let index = event.currentTarget.dataset.index;
 
-    wx.showModal({
-      title: "提示",
-      content: "确认已收货吗",
-      confirmText: "确定",
-    }).then((res) => {
-      if (res.confirm == true) {
-        wx.cloud
-          .database()
-          .collection("shop_orders")
-          .doc(this.data.orderList[index]._id)
-          .update({
-            data: {
-              status: 2,
-            },
-          })
-          .then((result) => {
-            wx.showToast({
-              title: "保存成功",
-            });
-            this.getOrderList();
-          });
-      } else {
-      }
-    });
-  },
   toComment(event) {
     wx.navigateTo({
       url:

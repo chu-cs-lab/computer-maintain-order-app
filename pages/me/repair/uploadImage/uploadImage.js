@@ -47,6 +47,7 @@ Page({
     });
   },
   submit() {
+    var that =  this
     wx.showModal({
       title: "提示",
       content: "确认提交吗",
@@ -59,7 +60,6 @@ Page({
           .doc(this.data.orderId)
           .update({
             data: {
-              status: 2,
               repairNote: this.data.text,
               repairImages: this.data.cloudImgList,
             },
@@ -73,6 +73,7 @@ Page({
                 });
               },
             });
+            that.onShow()
           });
       } else {
       }

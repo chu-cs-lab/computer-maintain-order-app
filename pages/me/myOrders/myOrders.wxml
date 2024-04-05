@@ -43,7 +43,7 @@
 
         <button wx:if="{{item.status==0}}" size="mini" type="primary" bindtap="cancel" data-index="{{index}}">取消订单</button>
 
-        <!-- <button wx:if="{{item.status==1}}" size="mini" type="primary" bindtap="confirm" data-index="{{index}}">已评价</button> -->
+        <button wx:if="{{item.status==1}}" size="mini" type="primary" bindtap="confirm" data-index="{{index}}">确认维修完成</button>
 
         
       </view>

@@ -48,8 +48,8 @@
 
         <button wx:if="{{item.status==0}}" size="mini" type="primary" bindtap="jiedan" data-index="{{index}}">接单</button>
 
-        <button wx:if="{{item.status==1}}" size="mini" type="primary" bindtap="toUploadImage" data-index="{{index}}">拍照上传</button>
-
+        <button wx:if="{{item.status==1 && (!item.repairImages)}}" size="mini" type="primary" bindtap="toUploadImage" data-index="{{index}}">拍照上传</button>
+        <block wx:if="{{item.status==1 && (item.repairImages)}}">已维修，待确认</block>
         
       </view>
   </view>
