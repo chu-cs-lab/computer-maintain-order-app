@@ -46,7 +46,8 @@
   text-align: center;
 }
 .good-img {
-  max-height: 220rpx;
+  width: calc(100%);
+  height: 250rpx;
   border-radius: 20rpx;
 }
 .good-bootom {

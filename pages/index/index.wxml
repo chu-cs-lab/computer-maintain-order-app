@@ -16,7 +16,7 @@
     <block wx:for="{{goodsList}}" wx:key="_id">
       <view bindtap="toGoodDetail" data-id="{{item._id}}">
         <view class="img-box">
-          <image src="{{item.cover}}" class="good-img" bindload="imgLoadSuccess" mode="heightFix"></image>
+          <image src="{{item.cover}}"  class="good-img" bindload="imgLoadSuccess"></image>
         </view>
         <view wx:if="{{imgLoaded}}">
           <view class="good-title">
