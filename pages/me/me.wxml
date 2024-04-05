@@ -25,7 +25,7 @@
 
     <navigator url="/pages/me/myOrders/myOrders?status=1">
       <image class="type-img" src="/images/waitGet.png"></image>
-      <view>待上门</view>
+      <view>待维修</view>
     </navigator>
 
     <navigator url="/pages/me/myOrders/myOrders?status=2">
@@ -35,7 +35,7 @@
 
     <navigator url="/pages/me/myOrders/myOrders?status=3">
       <image class="type-img" src="/images/success.png"></image>
-      <view>已完成</view>
+      <view>已评价</view>
     </navigator>
   </view>
 

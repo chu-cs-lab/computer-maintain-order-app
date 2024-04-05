@@ -4,9 +4,9 @@
 <view class="menu-wrap">
   <!-- <view class="menu-item {{status==-1?'choose-type':''}}" bindtap="choooType" data-type="-1">待支付</view> -->
   <view class="menu-item {{status==0?'choose-type':''}}" bindtap="choooType" data-type="0">待接单</view>
-  <view class="menu-item {{status==1?'choose-type':''}}" bindtap="choooType" data-type="1">待上门</view>
+  <view class="menu-item {{status==1?'choose-type':''}}" bindtap="choooType" data-type="1">待维修</view>
   <view class="menu-item {{status==2?'choose-type':''}}" bindtap="choooType" data-type="2">待评价</view>
-  <view class="menu-item {{status==3?'choose-type':''}}" bindtap="choooType" data-type="3">已完成</view>
+  <view class="menu-item {{status==3?'choose-type':''}}" bindtap="choooType" data-type="3">已评价</view>
 </view>
 
 

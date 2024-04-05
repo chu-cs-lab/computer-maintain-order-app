@@ -13,17 +13,6 @@ Page({
   },
 
   onLoad: function (options) {
-    // if(app.globalData.orderList.length<10){
-    //   wx.navigateBack({
-    //     delta: 0,
-    //     success(){
-    //       wx.showToast({
-    //         icon:'error',
-    //         title: '数量小于10',
-    //       })
-    //     }
-    //   })
-    // }
 
     this.setData({
       orderList: app.globalData.orderList,
@@ -146,12 +135,6 @@ Page({
           status: -1,
           //预约时间
           yuyueTime: this.data.chooseDate + " " + this.data.chooseTime,
-          //-2: 取消订单
-          //-1：待支付
-          // 0: 待发货
-          // 1：待收货 +已发货 ；
-          // 2：待评价 ；
-          // 3：已完成
         },
       })
       .then((res) => {

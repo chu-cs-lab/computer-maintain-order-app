@@ -30,7 +30,7 @@ Page({
         },
       })
       .then((res) => {
-        //更新订单状态为已完成
+        //更新订单状态为已评价
         wx.cloud
           .database()
           .collection("shop_orders")
