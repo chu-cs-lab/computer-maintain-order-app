@@ -42,6 +42,7 @@ App({
 
     // 存储到本地存储
     wx.setStorageSync("userInfo", res.data[0]);
+    return res.data[0]
 
   },
   globalData: {

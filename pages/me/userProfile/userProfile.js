@@ -33,6 +33,13 @@ Page({
       })
       .get()
       .then((result) => {
+        if(!that.data.userInfo.nickName){
+          wx.showToast({
+            title: '请输入昵称！',
+            icon: 'error'
+          })
+          return
+        }
         if (result.data.length == 0) {
           //添加用户数据到数据库
           wx.cloud

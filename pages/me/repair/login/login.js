@@ -1,37 +1,54 @@
-var app =getApp()
+var app = getApp()
 Page({
-  data: {},
+  data: {
+    inviteCode: ''
+  },
 
   onLoad(options) {},
-  login() {
+  onInputChange(e) {
+    const inviteCode = e.detail.value
+    this.setData({
+      inviteCode
+    })
+  },
+  async verifyInviteCode() {
+    if (!this.data.inviteCode) {
+      return false
+    }
+    const result = await wx.cloud
+      .database()
+      .collection("invite_code_list")
+      .where({
+        invite_code: this.data.inviteCode,
+      })
+      .get()
+    if (result.data.length !== 0) {
+      return true
+    } else {
+      console.log(222)
+      return false
+    }
+  },
+  async enterRepair() {
+    const verified = await this.verifyInviteCode()
+    if (!verified) {
+      wx.showToast({
+        title: '邀请码不存在',
+        icon: 'error'
+      })
+      return
+    }
+    wx.navigateTo({
+      url: '/pages/me/repair/repair',
+    })
+    const userInfo = await app.getUserInfo()
     wx.cloud
       .database()
       .collection("shop_users")
-      .where({
-        isStuff: true,
-        _openid: app.globalData.openid
+      .doc(userInfo._id).update({
+       data:{
+         isStuff: true
+       }
       })
-      .get()
-      .then((res) => {
-        if (res.data.length > 0) {
-          wx.navigateTo({
-            url: "/pages/me/repair/repair",
-          });
-        } else {
-          wx.showToast({
-            icon: "none",
-            title: "请向管理员申请成为维修员",
-            duration:600
-          }).then(()=>{
-            setTimeout(()=>{
-              wx.navigateBack()
-            },700)
-          });
-          
-        }
-      });
-  },
-  onShow(){
-    this.login()
   }
 });
