@@ -143,19 +143,17 @@ Page({
           orderId,
         });
 
-        //调起微信支付
-        this.pay();
-
         //调起虚拟支付
-        this.xuniPay();
+        this.confirmOrder();
       });
   },
-  xuniPay() {
+  confirmOrder() {
     let that = this;
     wx.showModal({
       title: "提示",
-      content: "是否支付服务价格" + this.data.sum + "元",
-      confirmText: "支付",
+      content: "是否确定预约该服务？",
+      confirmText: "是",
+      cancelText: "否",
     }).then((res) => {
       if (res.confirm == true) {
         wx.cloud
