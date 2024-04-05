@@ -1,4 +1,4 @@
-<import src="index.skeleton.wxml"/>
+<import src="index.skeleton.wxml" />
 <template is="skeleton" wx:if="{{loading}}" />
 <view wx:else>
   <view class="search-wrap" bindtap="toSearch">
@@ -16,14 +16,15 @@
     <block wx:for="{{goodsList}}" wx:key="_id">
       <view bindtap="toGoodDetail" data-id="{{item._id}}">
         <view class="img-box">
-          <image src="{{item.cover}}"  class="good-img" ></image>
+          <image src="{{item.cover}}"  class="good-img" bindload="imgLoadSuccess"></image>
         </view>
-        <view class="good-title">
-          <text>{{item.title}}</text>
-        </view>
-        <view class="good-bootom">
-          <view class="good-tag">{{item.saleNumber}}人预约</view>
-          <view class="good-price">￥{{item.price}}</view>
+        <view wx:if="{{imgLoaded}}">
+          <view class="good-title">
+            <text>{{item.title}}</text>
+          </view>
+          <view class="good-bootom">
+            <view class="good-price">￥{{item.price}}</view>
+          </view>
         </view>
       </view>
     </block>

@@ -84,7 +84,7 @@ Page({
 
     wx.showModal({
       title: "提示",
-      content: "是否取消此预约",
+      content: "是否取消此订单",
       confirmText: "确定",
     }).then((res) => {
       if (res.confirm == true) {

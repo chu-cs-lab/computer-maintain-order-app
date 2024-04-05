@@ -55,7 +55,7 @@ Page({
         }
       });
 
-    //设置预约列表服务数量
+    //设置订单列表服务数量
 
     this.setData({
       cartList: app.globalData.cartList,
@@ -101,7 +101,7 @@ Page({
       imageUrl: this.data.good.cover,
     };
   },
-  //添加当前服务到预约列表
+  //添加当前服务到订单列表
   addCart() {
     //登录拦截
     if (!app.globalData.userInfo) {

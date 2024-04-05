@@ -35,7 +35,7 @@
       },
       {
         "pagePath": "pages/cart/cart",
-        "text": "预约列表",
+        "text": "订单列表",
         "iconPath": "/images/cart.png",
         "selectedIconPath": "/images/cart_yes.png"
       },

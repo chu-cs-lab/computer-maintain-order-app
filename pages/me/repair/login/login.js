@@ -1,42 +1,54 @@
+var app = getApp()
 Page({
-  data: {},
+  data: {
+    inviteCode: ''
+  },
 
   onLoad(options) {},
-  getAccount(event) {
+  onInputChange(e) {
+    const inviteCode = e.detail.value
     this.setData({
-      account: event.detail.value,
-    });
+      inviteCode
+    })
   },
-  getPassword(event) {
-    this.setData({
-      password: event.detail.value,
-    });
-  },
-  login() {
-    wx.cloud
+  async verifyInviteCode() {
+    if (!this.data.inviteCode) {
+      return false
+    }
+    const result = await wx.cloud
       .database()
-      .collection("shop_repairmans")
+      .collection("invite_code_list")
       .where({
-        account: this.data.account,
-        password: this.data.password,
+        invite_code: this.data.inviteCode,
       })
       .get()
-      .then((res) => {
-        if (res.data.length > 0) {
-          wx.navigateTo({
-            url: "/pages/me/repair/repair",
-            success() {
-              wx.showToast({
-                title: "登录成功",
-              });
-            },
-          });
-        } else {
-          wx.showToast({
-            icon: "error",
-            title: "账号密码错误",
-          });
-        }
-      });
+    if (result.data.length !== 0) {
+      return true
+    } else {
+      console.log(222)
+      return false
+    }
   },
+  async enterRepair() {
+    const verified = await this.verifyInviteCode()
+    if (!verified) {
+      wx.showToast({
+        title: '邀请码不存在',
+        icon: 'error'
+      })
+      return
+    }
+    wx.navigateTo({
+      url: '/pages/me/repair/repair',
+    })
+    const userInfo = await app.getUserInfo()
+    wx.cloud
+      .database()
+      .collection("shop_users")
+      .doc(userInfo._id).update({
+       data:{
+         isStuff: true
+       }
+      })
+  }
 });

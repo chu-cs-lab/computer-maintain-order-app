@@ -1,5 +1,23 @@
-.ipt {
-  margin: 20rpx;
-  border: 1rpx solid rgb(141, 141, 141);
-  padding: 20rpx;
+.code-wrapper {
+  display: flex;
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+  border-top: .5px solid rgba(0, 0, 0, 0.1);
+  border-bottom: .5px solid rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+.code-label {
+  width: 105px;
+}
+
+.code-input {
+  flex: 1;
+}
+
+.confirm {
+  background-color: #FF6146;
+  color: #fff;
+  margin: 80rpx 10rpx;
 }

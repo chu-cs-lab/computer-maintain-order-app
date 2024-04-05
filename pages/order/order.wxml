@@ -29,7 +29,7 @@
 <block wx:for="{{orderList}}" wx:key="_id">
 
   <view class="good-box" bindtap="toGoodDetail" data-id="{{item._id}}">
-    
+
     <image src="{{item.cover}}" class="good-img"></image>
     <view class="good-right">
       <view>{{item.title}}</view>
@@ -38,7 +38,7 @@
         <view class="good-right-bottom">
           <image src="/images/delete.png" class="add-delete-img" catchtap="reduce" data-index="{{index}}"></image>
           <view class="type-good-num">{{item.number}}</view>
-          <image src='/images/add.png' class="add-delete-img"  catchtap="add" data-index="{{index}}"></image>
+          <image src='/images/add.png' class="add-delete-img" catchtap="add" data-index="{{index}}"></image>
         </view>
       </view>
     </view>
@@ -49,8 +49,8 @@
 
 
 <view class="all-bottom-box">
-  <view class="all-bottom-left" bindtap="chooseAll">  
-    
+  <view class="all-bottom-left" bindtap="chooseAll">
+
     <view class="all-bottom-left-text">共{{totalNumber}}件</view>
   </view>
   <view class="all-bottom-right">
@@ -59,7 +59,7 @@
       <text class="total-price-tag">￥</text>
       <text class="total-price-money">{{sum}}</text>
     </view>
-    <view class="total-button" bindtap="addOrder">提交预约</view>
+    <view class="total-button" bindtap="addOrder">提交订单</view>
   </view>
 </view>
 
@@ -68,24 +68,26 @@
 
 
 <view class="title">
-  预约时间:
+  预约日期:
 </view>
-
 <picker mode="date" bindchange="chooseDate" class="picker-cell">
-  <view wx:if="{{!chooseDate}}">请选择日期</view>
-  <view wx:if="{{chooseDate}}">日期：{{chooseDate}}</view>
+  <view wx:if="{{!chooseDate}}">点击选择日期</view>
+  <view wx:if="{{chooseDate}}">{{chooseDate}}</view>
+</picker>
+<view class="title">
+  预约时间:
+  
+</view>
+<picker mode="selector" range="{{timeList}}" value="{{timeIndex}}" bindchange="chooseTime" class="picker-cell">
+  <view wx:if="{{!chooseTime}}">点击选择时间</view>
+  <view wx:if="{{chooseTime}}">{{chooseTime}}</view>
 </picker>
 
-<view class="time-wrap">
-  <view bindtap="chooseTime" data-time="8:00-10:00" class="{{chooseTime=='8:00-10:00'?'choose-time':''}}">8:00-10:00</view>
-  <view bindtap="chooseTime" data-time="10:00-12:00" class="{{chooseTime=='10:00-12:00'?'choose-time':''}}">10:00-12:00</view>
-  <view bindtap="chooseTime" data-time="14:00-16:00" class="{{chooseTime=='14:00-16:00'?'choose-time':''}}">14:00-16:00</view>
-  <view bindtap="chooseTime" data-time="16:00-18:00" class="{{chooseTime=='16:00-18:00'?'choose-time':''}}">16:00-18:00</view>
-  <view bindtap="chooseTime" data-time="18:00-20:00" class="{{chooseTime=='18:00-20:00'?'choose-time':''}}">18:00-20:00</view>
+
+<view class="title">
+  备注信息:
 </view>
-
-
-<input type="text" bindinput="getNote" class="note" placeholder="请输入备注"/>
+<input type="text" bindinput="getNote" class="note" placeholder="请输入备注" />
 
 
 <view style="height: 200rpx;"></view>

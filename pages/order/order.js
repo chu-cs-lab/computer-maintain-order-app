@@ -1,7 +1,16 @@
 const app = getApp();
 const util = require("../../utils/util.js");
 Page({
-  data: {},
+  data: {
+    timeList:[
+      "8:00-10:00",
+      "10:00-12:00",
+      "14:00-16:00",
+      "16:00-18:00",
+      "18:00-20:00"
+    ],
+    timeIndex:0
+  },
 
   onLoad: function (options) {
     // if(app.globalData.orderList.length<10){
@@ -23,6 +32,7 @@ Page({
 
     //读取缓存里的地址
     let address = wx.getStorageSync("address");
+   if(address){
     this.setData({
       phone: address.telNumber,
       name: address.userName,
@@ -32,6 +42,7 @@ Page({
         address.countyName +
         address.detailInfo,
     });
+   }
   },
   add(event) {
     let index = event.currentTarget.dataset.index;
@@ -113,6 +124,13 @@ Page({
     });
   },
   addOrder() {
+    if(!(this.data.name && this.data.phone && this.data.address && this.data.chooseDate && this.data.chooseTime)){
+      wx.showToast({
+        title: '信息不完整!请检查',
+        icon: 'none'
+      })
+      return;
+    }
     wx.cloud
       .database()
       .collection("shop_orders")
@@ -128,7 +146,7 @@ Page({
           status: -1,
           //预约时间
           yuyueTime: this.data.chooseDate + " " + this.data.chooseTime,
-          //-2: 取消预约
+          //-2: 取消订单
           //-1：待支付
           // 0: 待发货
           // 1：待收货 +已发货 ；
@@ -167,7 +185,7 @@ Page({
             },
           })
           .then((result) => {
-            //从预约列表里面清除预约列表里面的服务
+            //从订单列表里面清除订单列表里面的服务
             that.clearCartList();
 
             //添加服务销量  减去对应库存数量
@@ -233,8 +251,10 @@ Page({
     });
   },
   chooseTime(e) {
+    console.log(e);
     this.setData({
-      chooseTime: e.currentTarget.dataset.time,
+      chooseTime: this.data.timeList[e.detail.value],
+      timeIndex : e.detail.value
     });
   },
 });

@@ -1,11 +1,11 @@
 Page({
   data: {
-    loading: true
+    loading: true,
+    imgLoaded: false
   },
 
   onLoad: function (options) {},
   async onShow() {
-
     //获取服务列表
     await this.getGoodsList();
       this.setData({
@@ -21,17 +21,21 @@ Page({
         isHome: true,
       })
       .get()
-      console.log(res.data)
     this.setData({
       goodsList: res.data,
     });
-    console.log(1111)
   },
   toGoodDetail(event) {
     let id = event.currentTarget.dataset.id;
     wx.navigateTo({
       url: "/pages/goodDetail/goodDetail?id=" + id,
     });
+  },
+  imgLoadSuccess(){
+    this.setData({
+      imgLoaded: true,
+      loading:false
+    })
   },
   toSearch() {
     wx.navigateTo({

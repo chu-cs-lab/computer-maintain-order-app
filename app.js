@@ -42,6 +42,7 @@ App({
 
     // 存储到本地存储
     wx.setStorageSync("userInfo", res.data[0]);
+    return res.data[0]
 
   },
   globalData: {
@@ -49,10 +50,10 @@ App({
 
     openid: null,
 
-    //预约列表列表
+    //订单列表列表
     cartList: [],
 
-    //预约列表
+    //订单列表
     orderList: null,
   },
 });

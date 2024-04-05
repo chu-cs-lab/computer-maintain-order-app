@@ -3,8 +3,6 @@
 
 <view class="good-price-tag">
   <view class="good-price">￥{{good.price}}</view>
-  <!-- <view class="good-tag">{{good.saleNumber}}人预约</view> -->
-  <view class="good-tag">库存{{good.stockNumber}}</view>
 </view>
 
 <view class="good-title-box">
@@ -62,7 +60,7 @@
     <image src="/images/cart_yes.png" class="cart-img" bindtap="toCart"></image>
   </view>
   <view class="tabbar-right">
-    <view class="add-cart" bindtap="addCart">加入预约列表</view>
+    <view class="add-cart" bindtap="addCart">加入订单列表</view>
     <view class="buy" bindtap="toOrder">立即预约</view>
   </view>
 
