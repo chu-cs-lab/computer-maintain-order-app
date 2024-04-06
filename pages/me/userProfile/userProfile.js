@@ -9,12 +9,30 @@ Page({
     }
   },
   onChooseAvatar(e) {
-    const {
-      avatarUrl
-    } = e.detail
-    this.setData({
-      "userInfo.avatarUrl": avatarUrl,
-    })
+    // 上传头像
+    let type = e.detail.avatarUrl.split(".");
+    if(type.length>2){
+      type = "."+type[1];
+    }else{
+      type=".png";
+    }
+    const filename = Date.now()+type;
+    wx.cloud.uploadFile({
+      cloudPath: "avatar/"+filename,
+      filePath:e.detail.avatarUrl,
+      success:(e)=>{
+        this.setData({
+          "userInfo.avatarUrl":e.fileID
+        }).bind(this);
+      },
+      fail:(e)=>{
+        wx.showToast({
+          title: '头像上传失败！',
+          icon: 'error'
+        })
+        return false;
+      }
+    });
   },
 
   onInputChange(e) {
@@ -33,7 +51,7 @@ Page({
       })
       .get()
       .then((result) => {
-        if(!that.data.userInfo.nickName){
+        if (!that.data.userInfo.nickName) {
           wx.showToast({
             title: '请输入昵称！',
             icon: 'error'
@@ -74,7 +92,7 @@ Page({
             })
             .then(async (updateResult) => {
               //获取数据库用户信息
-             app.getUserInfo().then(() => {
+              app.getUserInfo().then(() => {
                 wx.showToast({
                   title: "登录成功",
                 }).then(() => {
