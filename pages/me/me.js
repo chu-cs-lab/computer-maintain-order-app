@@ -36,7 +36,7 @@ Page({
       this.onLoad()
       return
     }
-    wx.redirectTo({
+    wx.navigateTo({
       url: 'userProfile/userProfile',
     })
   },
