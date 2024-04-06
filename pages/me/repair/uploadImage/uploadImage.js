@@ -73,7 +73,6 @@ Page({
                 });
               },
             });
-            that.onShow()
           });
       } else {
       }

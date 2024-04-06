@@ -3,7 +3,7 @@
   <image wx:if="{{!userInfo}}" src="/images/touxiang.png" class="face-img"></image>
 
 
-  <image wx:if="{{userInfo}}" src="{{userInfo.avatarUrl}}" class="face-img"></image>
+  <image wx:if="{{userInfo}}" src="{{userInfo.avatarUrl}}" class="face-img" bindload="imgLoaded" binderror="imgLoadedError"></image>
   <view wx:if="{{userInfo}}">{{userInfo.nickName}}</view>
 
 </view>

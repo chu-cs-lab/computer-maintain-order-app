@@ -25,7 +25,7 @@ Page({
     if (result.data.length !== 0) {
       return true
     } else {
-      console.log(222)
+
       return false
     }
   },

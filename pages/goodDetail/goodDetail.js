@@ -107,12 +107,6 @@ Page({
     if (!app.globalData.userInfo) {
       wx.switchTab({
         url: "/pages/me/me",
-        success() {
-          wx.showToast({
-            icon: "error",
-            title: "请登录",
-          });
-        },
       });
       return;
     }
@@ -164,12 +158,6 @@ Page({
     if (!app.globalData.userInfo) {
       wx.switchTab({
         url: "/pages/me/me",
-        success() {
-          wx.showToast({
-            icon: "error",
-            title: "请登录",
-          });
-        },
       });
       return;
     }

@@ -232,7 +232,6 @@ Page({
     });
   },
   chooseTime(e) {
-    console.log(e);
     this.setData({
       chooseTime: this.data.timeList[e.detail.value],
       timeIndex : e.detail.value

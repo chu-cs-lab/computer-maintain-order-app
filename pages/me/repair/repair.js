@@ -10,6 +10,9 @@ Page({
   onLoad: function (options) {
     this.getOrderList();
   },
+  onShow: function(){
+    this.getOrderList();
+  },
   choooType(event) {
     let status = event.currentTarget.dataset.type;
     let whereObj = {};

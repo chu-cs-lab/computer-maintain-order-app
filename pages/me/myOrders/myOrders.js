@@ -11,6 +11,9 @@ Page({
 
     this.getOrderList();
   },
+  onShow: function(){
+    this.getOrderList();
+  },
   choooType(event) {
     let status = event.currentTarget.dataset.type;
     this.setData({

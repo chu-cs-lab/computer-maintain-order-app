@@ -1,17 +1,20 @@
 const app = getApp();
-
+const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
 Page({
   data: {
     userInfo: null
   },
 
-  onShow() {
+  async onShow() {
     if (app.globalData.userInfo !== null) {
       this.setData({
         userInfo: app.globalData.userInfo,
       });
 
 
+    } else {
+      
+     await this.login()
     }
   },
   onLoad: function (options) {},
@@ -24,7 +27,7 @@ Page({
     wx.showLoading({
       title: '登录中',
     })
-    app.getUserInfo();
+   await app.getUserInfo();
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo
@@ -33,7 +36,7 @@ Page({
       this.onLoad()
       return
     }
-    wx.navigateTo({
+    wx.redirectTo({
       url: 'userProfile/userProfile',
     })
   },
@@ -99,4 +102,13 @@ Page({
         }
       });
   },
+  imgLoaded(){
+    
+  },
+  imgLoadedError(e){
+    this.setData({
+      "userInfo.avatarUrl": defaultAvatarUrl
+    })
+    console.log(e)
+  }
 });
