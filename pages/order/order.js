@@ -20,16 +20,16 @@ Page({
     this.total();
 
     //读取缓存里的地址
-    let serviceInfo = wx.getStorageSync("serviceInfo");
-   if(serviceInfo){
+    let repairLocation = wx.getStorageSync("repairLocation");
+   if(repairLocation){
     this.setData({
-      phone: serviceInfo.telNumber,
-      name: serviceInfo.userName,
-      serviceInfo:
-        serviceInfo.provinceName +
-        serviceInfo.cityName +
-        serviceInfo.countyName +
-        serviceInfo.detailInfo,
+      phone: repairLocation.telNumber,
+      name: repairLocation.userName,
+      repairLocation:
+        repairLocation.provinceName +
+        repairLocation.cityName +
+        repairLocation.countyName +
+        repairLocation.detailInfo,
     });
    }
   },
@@ -90,21 +90,19 @@ Page({
       totalNumber,
     });
   },
-  addAddress() {
-    let that = this;
-    wx.chooseAddress({
-      success: (result) => {
-        that.setData({
-          phone: result.telNumber,
-          name: result.userName,
-          serviceInfo:
-            result.provinceName +
-            result.cityName +
-            result.countyName +
-            result.detailInfo,
-        });
-        wx.setStorageSync("serviceInfo", result);
-      },
+  inputName: function(e) {
+    this.setData({
+      name: e.detail.value
+    });
+  },
+  inputPhone: function(e) {
+    this.setData({
+      phone: e.detail.value
+    });
+  },
+  inputLocation: function(e) {
+    this.setData({
+      repairLocation: e.detail.value
     });
   },
   getNote(event) {
@@ -113,7 +111,7 @@ Page({
     });
   },
   addOrder() {
-    if(!(this.data.name && this.data.phone && this.data.serviceInfo && this.data.chooseDate && this.data.chooseTime)){
+    if(!(this.data.name && this.data.phone && this.data.repairLocation && this.data.chooseDate && this.data.chooseTime)){
       wx.showToast({
         title: '信息不完整!请检查',
         icon: 'none'
@@ -127,7 +125,7 @@ Page({
         data: {
           name: this.data.name,
           phone: this.data.phone,
-          serviceInfo: this.data.serviceInfo,
+          repairLocation: this.data.repairLocation,
           goods: this.data.orderList,
           totalMoney: Number(this.data.sum),
           time: util.formatTime(new Date()),

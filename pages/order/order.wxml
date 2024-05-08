@@ -1,4 +1,10 @@
 
+
+  
+
+
+
+
 <view class="title">
   维修明细:
 </view>
@@ -39,11 +45,6 @@
     <view class="total-button" bindtap="addOrder">提交订单</view>
   </view>
 </view>
-
-
-
-
-
 <view class="title">
   预约维修日期:
 </view>
@@ -53,18 +54,28 @@
 </picker>
 <view class="title">
   预约维修时间:
-  
 </view>
 <picker mode="selector" range="{{timeList}}" value="{{timeIndex}}" bindchange="chooseTime" class="picker-cell">
   <view wx:if="{{!chooseTime}}">点击选择时间</view>
   <view wx:if="{{chooseTime}}">{{chooseTime}}</view>
 </picker>
+<view class="title">
+  联系人称呼:
+</view>
+<input type="text" bindinput="inputName" class="input" placeholder="请输入联系人称呼" />
 
-
+<view class="title">
+联系人手机号:
+</view>
+<input type="number" bindinput="inputPhone" class="input" placeholder="请输入联系人手机号" />
+<view class="title">
+  维修地点:
+</view>
+<input type="text" bindinput="inputLocation" class="input" placeholder="请输入维修地点" />
 <view class="title">
   备注信息:
 </view>
-<input type="text" bindinput="getNote" class="note" placeholder="请输入备注" />
+<input type="text" bindinput="getNote" class="input" placeholder="请输入备注" />
 
 
 <view style="height: 200rpx;"></view>

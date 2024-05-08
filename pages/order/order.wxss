@@ -101,13 +101,13 @@
 
 
 /* 添加地址 */
-.add-serviceInfo {
+.add-repairLocation {
   padding: 50rpx 0rpx;
   border-bottom: solid 6rpx #eeeeee;
   text-align: center;
   font-size: 38rpx;
 }
-.serviceInfo-box {
+.repairLocation-box {
   padding: 0rpx 20rpx 40rpx 20rpx;
   border-bottom: solid 6rpx #eeeeee;
   display: flex;
@@ -116,7 +116,7 @@
   justify-content: space-between;
   align-items: center;
 }
-.serviceInfo-right {
+.repairLocation-right {
   width: 50rpx;
   margin-right: 20rpx;
   font-size: 40rpx;
@@ -124,7 +124,7 @@
 .name {
   margin-right: 30rpx;
 }
-.serviceInfo-top {
+.repairLocation-top {
   margin-bottom: 20rpx;
 }
 
@@ -133,7 +133,7 @@
   font-size: 36rpx;
 }
 
-.note {
+.input {
   padding: 20rpx 20rpx;
   border-bottom: solid 6rpx #eeeeee;
   margin-top: 10rpx;
