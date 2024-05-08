@@ -131,6 +131,7 @@ Page({
   },
   //跳入订单页面
   toOrder() {
+    app.globalData.isOneKey = true;
     let orderList = [];
     for (let index in this.data.cartList) {
       if (this.data.cartList[index].choose == true) {

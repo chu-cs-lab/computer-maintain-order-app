@@ -9,6 +9,9 @@ try {
 }
 
 App({
+  globalData:{
+    isOneKey: false
+  },
   onLaunch() {
     wx.cloud.init({
       env: shared.cloud_id,
