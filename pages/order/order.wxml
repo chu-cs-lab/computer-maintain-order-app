@@ -23,7 +23,7 @@
 
 
 <view class="title">
-  购物明细:
+  维修明细:
 </view>
 
 <block wx:for="{{orderList}}" wx:key="_id">

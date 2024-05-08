@@ -30,9 +30,10 @@
   width: 600rpx;
 }
 .share-but {
-  background-color: white;
-  padding: 0 0;
-  margin: 0 0;
+  height: auto;
+  width: 200rpx;
+  background-color: #FF6146;
+  color: white;
 }
 .good-detail-title {
   border-top: 4rpx solid #f7f7f7;

@@ -2,6 +2,7 @@
   <view class="container">
     <view class="userinfo">
       <block>
+        点击下方图标更换头像
         <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
           <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
         </button>

@@ -47,6 +47,13 @@ Page({
     });
   },
   submit() {
+    if(!(this.data.cloudImgList&&this.data.text)){
+      wx.showToast({
+        title: '填写不完整，请检查',
+        icon: 'none'
+      })
+      return;
+    }
     var that =  this
     wx.showModal({
       title: "提示",

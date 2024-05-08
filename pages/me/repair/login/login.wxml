@@ -1,7 +1,7 @@
 <view>
   <view class="code-wrapper">
     <text class="code-label">邀请码</text>
-    <input type="text" class="code-input" placeholder="请输入邀请码" bind:change="onInputChange" />
+    <input type="text" class="code-input" placeholder="请输入邀请码" bindinput="onInputChange" />
   </view>
   <button bindtap="enterRepair" class="confirm">确认</button>
 </view>

@@ -1,4 +1,4 @@
-<textarea class="text-area" placeholder="请输入备注" bindinput="getText"></textarea>
+<textarea class="text-area" placeholder="请输入维修结果" bindinput="getText"></textarea>
 
 <view class="titlte">选择图片:</view>
 

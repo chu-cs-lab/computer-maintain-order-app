@@ -8,7 +8,7 @@
 <view class="good-title-box">
 
   <view class="good-title">{{good.title}}</view>
-  <button open-type="share" class="share-but">分享</button>
+  <button open-type="share"  class="share-but">分享</button>
 </view>
 
 
