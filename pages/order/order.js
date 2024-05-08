@@ -167,6 +167,7 @@ Page({
             //从订单列表里面清除订单列表里面的服务
             if(app.globalData.isOneKey){
             that.clearCartList();
+            app.globalData.isOneKey = false;
             }
             //添加服务销量  减去对应库存数量
             that.addSaleNumber();
