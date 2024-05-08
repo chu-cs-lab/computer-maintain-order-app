@@ -101,13 +101,13 @@
 
 
 /* 添加地址 */
-.add-address {
+.add-serviceInfo {
   padding: 50rpx 0rpx;
   border-bottom: solid 6rpx #eeeeee;
   text-align: center;
   font-size: 38rpx;
 }
-.address-box {
+.serviceInfo-box {
   padding: 0rpx 20rpx 40rpx 20rpx;
   border-bottom: solid 6rpx #eeeeee;
   display: flex;
@@ -116,7 +116,7 @@
   justify-content: space-between;
   align-items: center;
 }
-.address-right {
+.serviceInfo-right {
   width: 50rpx;
   margin-right: 20rpx;
   font-size: 40rpx;
@@ -124,7 +124,7 @@
 .name {
   margin-right: 30rpx;
 }
-.address-top {
+.serviceInfo-top {
   margin-bottom: 20rpx;
 }
 
@@ -139,7 +139,7 @@
   margin-top: 10rpx;
 }
 
-/* 预约时间 */
+/* 预约维修时间 */
 .picker-cell {
   /* margin: 20rpx; */
   text-align: center;

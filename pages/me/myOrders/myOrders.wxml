@@ -27,9 +27,9 @@
         </view>
       </block>
       <view class="total-money">合计：<text class="red">{{item.totalMoney}}</text></view>
-      <view class="line-item">收货地址：{{item.address}}</view>
-      <view class="line-item">收货人：{{item.name}} 电话：{{item.phone}}</view>
-      <view class="line-item">预约时间：{{item.yuyueTime}}</view>
+      <view class="line-item">维修地点：{{item.serviceInfo}}</view>
+      <view class="line-item">需维修人：{{item.name}} 电话：{{item.phone}}</view>
+      <view class="line-item">预约维修时间：{{item.yuyueTime}}</view>
 
       <view class="line-item"  wx:if="{{item.status>1}}">维修结果：{{item.repairNote}}</view> 
       <block wx:for="{{item.repairImages}}" wx:for-item="itemm" wx:for-index="indexx" wx:key="_id">

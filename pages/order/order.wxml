@@ -1,26 +1,3 @@
-<view class="title">
-  地址信息:
-</view>
-
-<view class="add-address" bindtap="addAddress" wx:if="{{!address}}">
-  添加地址>
-</view>
-
-<view class="address-box" wx:if="{{address}}" bindtap="addAddress">
-  <view>
-    <view class="address-top">
-      <text class="name">{{name}}</text>
-      <text>{{phone}}</text>
-    </view>
-    <view>
-      {{address}}
-    </view>
-  </view>
-  <view class="address-right">
-    >
-  </view>
-</view>
-
 
 <view class="title">
   维修明细:
@@ -68,14 +45,14 @@
 
 
 <view class="title">
-  预约日期:
+  预约维修日期:
 </view>
 <picker mode="date" bindchange="chooseDate" class="picker-cell">
   <view wx:if="{{!chooseDate}}">点击选择日期</view>
   <view wx:if="{{chooseDate}}">{{chooseDate}}</view>
 </picker>
 <view class="title">
-  预约时间:
+  预约维修时间:
   
 </view>
 <picker mode="selector" range="{{timeList}}" value="{{timeIndex}}" bindchange="chooseTime" class="picker-cell">

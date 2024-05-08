@@ -20,16 +20,16 @@ Page({
     this.total();
 
     //读取缓存里的地址
-    let address = wx.getStorageSync("address");
-   if(address){
+    let serviceInfo = wx.getStorageSync("serviceInfo");
+   if(serviceInfo){
     this.setData({
-      phone: address.telNumber,
-      name: address.userName,
-      address:
-        address.provinceName +
-        address.cityName +
-        address.countyName +
-        address.detailInfo,
+      phone: serviceInfo.telNumber,
+      name: serviceInfo.userName,
+      serviceInfo:
+        serviceInfo.provinceName +
+        serviceInfo.cityName +
+        serviceInfo.countyName +
+        serviceInfo.detailInfo,
     });
    }
   },
@@ -97,13 +97,13 @@ Page({
         that.setData({
           phone: result.telNumber,
           name: result.userName,
-          address:
+          serviceInfo:
             result.provinceName +
             result.cityName +
             result.countyName +
             result.detailInfo,
         });
-        wx.setStorageSync("address", result);
+        wx.setStorageSync("serviceInfo", result);
       },
     });
   },
@@ -113,7 +113,7 @@ Page({
     });
   },
   addOrder() {
-    if(!(this.data.name && this.data.phone && this.data.address && this.data.chooseDate && this.data.chooseTime)){
+    if(!(this.data.name && this.data.phone && this.data.serviceInfo && this.data.chooseDate && this.data.chooseTime)){
       wx.showToast({
         title: '信息不完整!请检查',
         icon: 'none'
@@ -127,13 +127,13 @@ Page({
         data: {
           name: this.data.name,
           phone: this.data.phone,
-          address: this.data.address,
+          serviceInfo: this.data.serviceInfo,
           goods: this.data.orderList,
           totalMoney: Number(this.data.sum),
           time: util.formatTime(new Date()),
           note: this.data.note,
           status: -1,
-          //预约时间
+          //预约维修时间
           yuyueTime: this.data.chooseDate + " " + this.data.chooseTime,
         },
       })
