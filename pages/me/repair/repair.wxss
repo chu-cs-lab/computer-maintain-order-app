@@ -74,6 +74,7 @@ body {
   text-align: right;
   padding: 10rpx;
 }
+
 .line-item {
   display: flex;
   justify-content: space-between;
@@ -101,7 +102,8 @@ body {
   border: none;
   background-color: #ff5722;
   color: #fff;
-  width: 120rpx;
+  width: auto;
+  min-width: 120rpx; 
   padding: 10rpx 20rpx;
   border-radius: 50rpx;
   transition: all 0.3s ease;
