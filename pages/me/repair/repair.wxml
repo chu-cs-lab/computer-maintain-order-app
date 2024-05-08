@@ -23,9 +23,22 @@
       </view>
     </block>
     <view class="total-money">合计：<text class="red">{{item.totalMoney}}</text></view>
-    <view class="line-item">维修地点：{{item.repairLocation}}</view>
-    <view class="line-item">联系人：{{item.name}} 电话：{{item.phone}}</view>
-    <view class="line-item">预约维修时间：{{item.yuyueTime}}</view>
+    <view class="line-item">
+  <view class="item-label">维修地点：</view>
+  <view class="item-data">{{item.repairLocation}}</view>
+</view>
+<view class="line-item">
+  <view class="item-label">联系人：</view>
+  <view class="item-data">{{item.name}}</view>
+</view>
+<view class="line-item">
+  <view class="item-label">电话：</view>
+  <view class="item-data">{{item.phone}}</view>
+</view>
+<view class="line-item">
+  <view class="item-label">下单时间：</view>
+  <view class="item-data">{{item.time}}</view>
+</view>
 
     <view class="line-item" wx:if="{{item.status>1}}">维修结果：{{item.repairNote}}</view>
     <block wx:for="{{item.repairImages}}" wx:for-item="itemm" wx:for-index="indexx" wx:key="_id">
@@ -33,7 +46,6 @@
     </block>
 
 
-    <view class="line-item">下单时间：{{item.time}}</view>
 
 
 

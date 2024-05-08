@@ -1,28 +1,40 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+
 .menu-wrap {
   display: flex;
   flex-direction: row;
   margin: 20rpx 20rpx;
   padding: 20rpx 0rpx;
   justify-content: space-between;
-  border-bottom: 1rpx solid #eee;
+  border-bottom: 2rpx solid #ddd;
+  transition: all 0.3s ease;
 }
+
 .order-wrap {
   margin: 20rpx 20rpx;
-  border: 1rpx solid #eee;
+  border: 1rpx solid #ddd;
   border-radius: 20rpx;
   padding: 20rpx 20rpx;
+  box-shadow: 0 0 10rpx rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
 }
+
 .good-img {
   width: 150rpx;
   height: 150rpx;
   border-radius: 10rpx;
   margin-right: 20rpx;
 }
+
 .good-wrap {
   display: flex;
   flex-direction: row;
   margin-bottom: 15rpx;
 }
+
 .good-bottom {
   display: flex;
   flex-direction: row;
@@ -30,42 +42,88 @@
   justify-content: space-between;
   margin-top: 60rpx;
 }
+
 .oder-id {
   font-size: 28rpx;
   margin-bottom: 15rpx;
+  color: #555;
 }
 
 .choose-type {
-  border-bottom: 5rpx solid red;
+  border-bottom: 5rpx solid #ff5722;
   padding-bottom: 20rpx;
 }
 
 .total-money {
   text-align: right;
   margin: 20rpx 0;
+  height: 40px;
+  border-bottom: 2px solid #f3f4f6;  
 }
+
 .line-item {
   margin: 10rpx 0;
+  color: #555;
 }
 
 .red {
-  color: red;
-}
-.but-wrap {
-  text-align: right;
+  color: #ff5722;
 }
 
+.but-wrap {
+  text-align: right;
+  padding: 10rpx;
+}
+
+.line-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20rpx 0;  
+  padding: 10rpx;
+  
+  transition: all 0.3s ease;
+}
+
+.item-label {
+  font-weight: bold;
+  color: #333;
+}
+
+.item-data {
+  color: #555;
+}
+
+.item-data {
+  color: #555;
+}
+
+.but-wrap button {
+  border: none;
+  background-color: #ff5722;
+  color: #fff;
+  width: auto;
+  min-width: 120rpx; 
+  padding: 10rpx 20rpx;
+  border-radius: 50rpx;
+  transition: all 0.3s ease;
+}
+
+.but-wrap button:hover {
+  background-color: #e64a19;
+}
 
 .comment {
   padding: 0rpx 20rpx;
-  border-radius: 20rpx;
-  border: 1rpx orange solid;
-  color: orange;
+  border-radius: 50rpx;
+  border: 1rpx #ff5722 solid;
+  color: #ff5722;
+
 }
 
-/* 维修结果 */
 .repair-img {
   width: 200rpx;
   height: 200rpx;
   margin-right: 10rpx;
+  border-radius: 10rpx;
 }
