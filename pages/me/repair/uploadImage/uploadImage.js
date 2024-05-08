@@ -15,10 +15,8 @@ Page({
   },
   chooseImage() {
     var that = this;
-    wx.chooseImage({
+    wx.chooseMedia({
       count: 3,
-      sizeType: ["original", "compressed"],
-      sourceType: ["album", "camera"],
       success(res) {
         that.data.tempImgList = res.tempFilePaths;
         that.uploadImages();

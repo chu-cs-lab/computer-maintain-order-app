@@ -115,10 +115,8 @@ Page({
   //选择详情图片
   chooseDetailImage() {
     var that = this;
-    wx.chooseImage({
+    wx.chooseMedia({
       count: 9 - that.data.cloudDetaiImage.length,
-      sizeType: ["original", "compressed"],
-      sourceType: ["album", "camera"],
       success(res) {
         that.data.tempImgList = res.tempFilePaths;
         //上传图片
@@ -153,10 +151,8 @@ Page({
   //选择封面图片
   chooseCoverImage() {
     var that = this;
-    wx.chooseImage({
+    wx.chooseMedia({
       count: 9 - that.data.cloudCoverImage.length,
-      sizeType: ["original", "compressed"],
-      sourceType: ["album", "camera"],
       success(res) {
         that.data.tempImgList = res.tempFilePaths;
         //上传图片
