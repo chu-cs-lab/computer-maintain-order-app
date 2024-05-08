@@ -7,7 +7,24 @@
   border-bottom: 1rpx solid #eee;
 }
 
+.line-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20rpx 0;  
+  padding: 10rpx;
+  
+  transition: all 0.3s ease;
+}
 
+.item-label {
+  font-weight: bold;
+  color: #333;
+}
+
+.item-data {
+  color: #555;
+}
 .order-wrap {
   margin: 20rpx 20rpx;
   border: 1rpx solid #eee;
@@ -44,7 +61,10 @@
 
 .total-money {
   text-align: right;
+  margin: 20rpx 0;  text-align: right;
   margin: 20rpx 0;
+  height: 40px;
+  border-bottom: 2px solid #f3f4f6;  
 }
 .line-item {
   margin: 10rpx 0;
