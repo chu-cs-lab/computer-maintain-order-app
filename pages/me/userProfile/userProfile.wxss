@@ -8,15 +8,12 @@ page {
   flex: 1;
   overflow-y: hidden;
 }
-
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #aaa;
-  width: 80%;
+.userinformation {
+  color: #333;
+  width: 100%;
+  margin: 0 auto; 
+  padding: 10px 0; 
 }
-
 .userinfo-avatar {
   overflow: hidden;
   width: 128rpx;
@@ -30,39 +27,53 @@ page {
 }
 
 .avatar-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+}
+.avatar-text{
+  font-size: 16px;
+}
+.imageContainer{
+  width: 36px; 
+  height: 36px; 
+  border-radius: 50%;
+  overflow: hidden; 
+}
+
+.avatarButton{
   padding: 0;
-  width: 56px !important;
-  border-radius: 8px;
-  margin-top: 40px;
-  margin-bottom: 40px;
 }
 
 .avatar {
-  display: block;
-  width: 56px;
-  height: 56px;
-}
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
 
+}
 .nickname-wrapper {
   display: flex;
   width: 100%;
-  padding: 16px;
+  justify-content: space-between;
+  padding: 10px;
   box-sizing: border-box;
   border-top: .5px solid rgba(0, 0, 0, 0.1);
-  border-bottom: .5px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   color: black;
 }
 
-.nickname-label {
-  width: 105px;
-}
 
 .nickname-input {
-  flex: 1;
+  display: flex;
+  text-align: right;
 }
 
 .confirm {
-  background-color: #FF6146;
   color: #fff;
-  margin: 80rpx 10rpx;
+  margin: 0 auto;
+  width: 80%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+  background-color: #FF6146; /* 添加背景颜色 */
+  border-radius: 25px; /* 添加圆角 */
 }
