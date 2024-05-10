@@ -1,0 +1,32 @@
+.text-area {
+  border: 1rpx solid rgb(187, 187, 187);
+  width: auto;
+  margin: 10rpx; 
+  padding: 20rpx;
+}
+
+.img-wrap {
+  display: flex;
+  flex-direction: row;
+  margin: 20rpx;
+  flex-wrap: wrap;
+}
+.img-choose {
+  width: 210rpx;
+  height: 210rpx;
+}
+.one-img {
+  margin: 4rpx 8rpx;
+  position: relative;
+}
+.close-img {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  right: 4rpx;
+  top: 4rpx;
+}
+
+.titlte {
+  margin: 20rpx;
+}
