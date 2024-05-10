@@ -9,12 +9,15 @@ Page({
       "16:00-18:00",
       "18:00-20:00"
     ],
-    timeIndex:0
+    timeIndex:0,
+    today: '',
   },
 
   onLoad: function (options) {
-
+    const today = new Date();
+  const formattedToday = `${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}`;
     this.setData({
+      today: formattedToday,
       orderList: app.globalData.orderList,
     });
     this.total();

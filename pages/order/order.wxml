@@ -48,7 +48,7 @@
 <view class="title">
   预约维修日期:
 </view>
-<picker mode="date" bindchange="chooseDate" class="picker-cell">
+<picker mode="date" start="{{today}}" bindchange="chooseDate" class="picker-cell">
   <view wx:if="{{!chooseDate}}">点击选择日期</view>
   <view wx:if="{{chooseDate}}">{{chooseDate}}</view>
 </picker>
