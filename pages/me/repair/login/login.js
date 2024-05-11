@@ -12,31 +12,35 @@ Page({
     })
   },
   async verifyInviteCode() {
-    if (!this.data.inviteCode) {
-      return false
-    }
-    const result = await wx.cloud
-      .database()
-      .collection("invite_code_list")
-      .where({
-        invite_code: this.data.inviteCode,
+    let res =await wx.cloud.callFunction({
+      name: "cloud",
+      data: {
+        route:"verifyInviteCode",
+        param:{
+          code:this.data.inviteCode
+        }
+      }
+    })
+    console.log(res);
+    if(res.result.code !== 1){
+      wx.showToast({
+        title: res.result.msg,
+        icon: 'error'
       })
-      .get()
-    if (result.data.length !== 0) {
-      return true
-    } else {
-
       return false
+    }else{
+      return true
     }
   },
   async enterRepair() {
     const verified = await this.verifyInviteCode()
     if (!verified) {
+      return false;
+    }else{
       wx.showToast({
-        title: '邀请码不存在',
-        icon: 'error'
+        title: "验证成功",
+        icon: 'success'
       })
-      return
     }
     wx.navigateTo({
       url: '/pages/me/repair/repair',
