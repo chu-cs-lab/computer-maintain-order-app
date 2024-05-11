@@ -13,7 +13,9 @@
     "pages/me/repair/repair",
     "pages/me/repair/uploadImage/uploadImage",
     "pages/me/repair/login/login",
-    "pages/me/userProfile/userProfile"
+    "pages/me/userProfile/userProfile",
+    "pages/me/repair/repairResult",
+    "pages/me/repair/repairResult/repairResult"
   ],
   "window": {
     "backgroundTextStyle": "light",

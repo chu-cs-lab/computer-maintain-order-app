@@ -27,6 +27,7 @@ Page({
           time: util.formatTime(new Date()),
           goodId: this.data.goodId,
           goodName: this.data.goodName,
+          orderId:this.data.orderId
         },
       })
       .then((res) => {

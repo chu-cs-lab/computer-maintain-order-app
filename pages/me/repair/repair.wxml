@@ -39,14 +39,14 @@
   <view class="item-label">下单时间：</view>
   <view class="item-data">{{item.time}}</view>
 </view>
-
-    <view class="line-item" wx:if="{{item.status>1}}">维修结果：{{item.repairNote}}</view>
-    <block wx:for="{{item.repairImages}}" wx:for-item="itemm" wx:for-index="indexx" wx:key="_id">
-      <image src="{{itemm}}" class="repair-img" bindtap="previewImage" data-src="{{itemm}}" data-index="{{index}}"></image>
-    </block>
-
-
-
+<view class="line-item">
+  <view class="item-label" wx:if="{{item.status>1}}">维修结果：</view>
+  <view class="item-data">{{item.repairNote}}</view>
+</view>
+<view class="line-item" wx:if="{{item.status == 3}}">
+  <view class="item-label">用户评价：</view>
+  <view class="item-data" wx:for="{{item.comments}}" wx:for-item="comment" wx:key="_id">{{comment.text}}</view>
+</view>
 
 
 
@@ -55,7 +55,9 @@
 
       <button wx:if="{{item.status==0}}" size="mini" type="primary" bindtap="jiedan" data-index="{{index}}">接单</button>
 
-      <button wx:if="{{item.status==1 && (!item.repairImages)}}" size="mini" type="primary" bindtap="toUploadImage" data-index="{{index}}">拍照上传</button>
+      <!-- <button wx:if="{{item.status==1 && (!item.repairImages)}}" size="mini" type="primary" bindtap="toUploadImage" data-index="{{index}}">拍照上传</button> -->
+
+      <button wx:if="{{item.status==1 && (!item.repairImages)}}" size="mini" type="primary" bindtap="toRepairResult" data-index="{{index}}">维修结束</button>
       <block wx:if="{{item.status==1 && (item.repairImages)}}">已维修，待确认</block>
 
     </view>

@@ -21,7 +21,7 @@
             <view class="good-bottom">
               <view class="red">￥{{good.price}}</view>
               <view wx:if="{{item.status!=2 && item.status!=3}}" class="red">X{{good.number}}</view>
-              <view wx:if="{{item.status==2 || item.status==3}}" class="comment" bindtap="toComment" data-id="{{good._id}}" data-title="{{good.title}}" data-orderid="{{item._id}}">评价</view>
+              <view wx:if="{{item.status==2}}" class="comment" bindtap="toComment" data-id="{{good._id}}" data-title="{{good.title}}" data-orderid="{{item._id}}">评价</view>
             </view>
           </view>
         </view>
@@ -44,17 +44,16 @@
   <view class="item-label">预约维修时间：</view>
   <view class="item-data">{{item.yuyueTime}}</view>
 </view>
-   
-
-      <view class="line-item"  wx:if="{{item.status>1}}">维修结果：{{item.repairNote}}</view> 
-      <block wx:for="{{item.repairImages}}" wx:for-item="itemm" wx:for-index="indexx" wx:key="_id">
-        <image src="{{itemm}}" class="repair-img" bindtap="previewImage" data-src="{{itemm}}" data-index="{{index}}"></image>
-      </block>
+  
       <view class="line-item">
   <view class="item-label">下单时间：</view>
   <view class="item-data">{{item.time}}</view>
 </view>
 
+<view class="line-item" wx:if="{{item.status == 3}}">
+  <view class="item-label">用户评价：</view>
+  <view class="item-data" wx:for="{{item.comments}}" wx:for-item="comment" wx:key="_id">{{comment.text}}</view>
+</view>
       <view class="but-wrap">
         <button wx:if="{{item.status==-1}}" size="mini" type="primary" bindtap="pay" data-index="{{index}}">支付</button>
 

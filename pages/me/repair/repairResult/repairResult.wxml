@@ -1,0 +1,2 @@
+<textarea class="text-area" placeholder="请输入维修结果" bindinput="getText"></textarea>
+<button type="primary" bindtap="submit">提交</button>

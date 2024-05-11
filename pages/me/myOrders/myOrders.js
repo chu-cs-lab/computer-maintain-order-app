@@ -22,20 +22,24 @@ Page({
     this.getOrderList();
   },
   getOrderList() {
-    wx.cloud
-      .database()
-      .collection("shop_orders")
-      .where({
-        status: Number(this.data.status),
-        _openid: app.globalData.openid,
+      wx.cloud.callFunction({
+        name: "dbSelect",
+        data: {
+          where: {
+            status: Number(this.data.status),
+            _openid: app.globalData.openid,
+          }
+        },
+        success: res => {
+          console.log(res);
+          if(res.result != null){
+            this.setData({
+              orderList: res.result.list          
+            });
+          }
+
+        },
       })
-      .orderBy("time", "desc")
-      .get()
-      .then((res) => {
-        this.setData({
-          orderList: res.data,
-        });
-      });
   },
 
   pay(event) {

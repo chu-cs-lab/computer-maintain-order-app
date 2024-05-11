@@ -10,7 +10,7 @@ Page({
   onLoad: function (options) {
     this.getOrderList();
   },
-  onShow: function(){
+  onShow: function () {
     this.getOrderList();
   },
   choooType(event) {
@@ -30,19 +30,18 @@ Page({
     this.getOrderList();
   },
   getOrderList() {
-    wx.cloud
-      .database()
-      .collection("shop_orders")
-      .where({
-        ...this.data.whereObj,
-      })
-      .orderBy("time", "desc")
-      .get()
-      .then((res) => {
+    wx.cloud.callFunction({
+      name: "dbSelect",
+      data: {
+        where: this.data.whereObj
+      },
+      success: res => {
+        console.log(res);
         this.setData({
-          orderList: res.data,
+          orderList: res.result.list          
         });
-      });
+      },
+    })
   },
 
   pay(event) {
@@ -50,8 +49,7 @@ Page({
 
     wx.showModal({
       title: "提示",
-      content:
-        "是否支付服务价格" + this.data.orderList[index].totalMoney + "元",
+      content: "是否支付服务价格" + this.data.orderList[index].totalMoney + "元",
       confirmText: "支付",
     }).then((res) => {
       if (res.confirm == true) {
@@ -108,8 +106,7 @@ Page({
             this.refund();
             this.getOrderList();
           });
-      } else {
-      }
+      } else {}
     });
   },
   //退款
@@ -117,8 +114,7 @@ Page({
 
   toComment(event) {
     wx.navigateTo({
-      url:
-        "/pages/me/myOrders/comment/comment?id=" +
+      url: "/pages/me/myOrders/comment/comment?id=" +
         event.currentTarget.dataset.id +
         "&goodName=" +
         event.currentTarget.dataset.title +
@@ -172,16 +168,22 @@ Page({
             });
             this.getOrderList();
           });
-      } else {
-      }
+      } else {}
     });
   },
   toUploadImage(event) {
     let index = event.currentTarget.dataset.index;
 
     wx.navigateTo({
-      url:
-        "/pages/me/repair/uploadImage/uploadImage?orderId=" +
+      url: "/pages/me/repair/uploadImage/uploadImage?orderId=" +
+        this.data.orderList[index]._id,
+    });
+  },
+  toRepairResult(event) {
+    let index = event.currentTarget.dataset.index;
+
+    wx.navigateTo({
+      url: "/pages/me/repair/repairResult/repairResult?orderId=" +
         this.data.orderList[index]._id,
     });
   },
