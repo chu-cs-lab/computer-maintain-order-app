@@ -39,9 +39,9 @@
   <view class="item-label">下单时间：</view>
   <view class="item-data">{{item.time}}</view>
 </view>
-<view class="line-item">
-  <view class="item-label" wx:if="{{item.status>1}}">维修结果：</view>
-  <view class="item-data">{{item.repairNote}}</view>
+<view class="line-item" wx:if="{{item.status>=1}}">
+  <view class="item-label" >维修结果：</view>
+  <view class="item-data">{{item.repairNote || "待维修"}}</view>
 </view>
 <view class="line-item" wx:if="{{item.status == 3}}">
   <view class="item-label">用户评价：</view>

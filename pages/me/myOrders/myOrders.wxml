@@ -54,12 +54,16 @@
   <view class="item-label">用户评价：</view>
   <view class="item-data" wx:for="{{item.comments}}" wx:for-item="comment" wx:key="_id">{{comment.text}}</view>
 </view>
+<view class="line-item" wx:if="{{item.status>=1}}">
+  <view class="item-label">维修结果：</view>
+  <view class="item-data">{{item.repairNote || "待维修"}}</view>
+</view>
       <view class="but-wrap">
         <button wx:if="{{item.status==-1}}" size="mini" type="primary" bindtap="pay" data-index="{{index}}">支付</button>
 
         <button wx:if="{{item.status==0}}" size="mini" type="primary" bindtap="cancel" data-index="{{index}}">取消订单</button>
 
-        <button wx:if="{{item.status==1}}" size="mini" type="primary" bindtap="confirm" data-index="{{index}}">确认维修完成</button>
+        <button wx:if="{{item.status==1}}" size="mini" type="primary" bindtap="confirm" data-index="{{index}}" disabled="{{!item.repairNote}}">确认维修完成</button>
 
         
       </view>
