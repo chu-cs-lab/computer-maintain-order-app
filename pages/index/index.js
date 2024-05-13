@@ -4,7 +4,9 @@ Page({
     imgLoaded: false
   },
 
-  onLoad: function (options) {},
+  onLoad: function (options) {
+    
+  },
   async onShow() {
     //获取服务列表
     await this.getGoodsList();
