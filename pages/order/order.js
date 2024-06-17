@@ -175,13 +175,8 @@ Page({
             //添加服务销量  减去对应库存数量
             that.addSaleNumber();
 
-            wx.navigateBack({
-              delta: 0,
-              success() {
-                wx.showToast({
-                  title: "预约成功",
-                });
-              },
+            wx.redirectTo({
+              url: '/pages/me/myOrders/myOrders',
             });
           });
       } else {
